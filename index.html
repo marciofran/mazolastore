@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAZOLASTORE - Tecnologia & Ofertas Tech</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#0f172a] text-slate-100 min-h-screen font-sans relative">
+
+  <!-- BARRA DE ANÚNCIO NO TOPO -->
+  <div class="bg-gradient-to-r from-cyan-600 via-cyan-500 to-blue-600 text-slate-950 font-extrabold text-[11px] md:text-xs py-2 px-4 text-center tracking-wide flex items-center justify-center gap-2 shadow-md">
+    <i data-lucide="truck" class="w-4 h-4"></i>
+    <span>FRETE GRÁTIS E OFERTAS EXCLUSIVAS VIA MERCADO LIVRE & SHOPEE!</span>
+  </div>
+
+  <!-- Container Principal -->
+  <div class="max-w-6xl mx-auto bg-[#0b0f19] border border-slate-800/80 my-4 md:my-8 rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-2xl">
+    
+    <!-- HEADER -->
+    <header class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-slate-800/80 pb-4 mb-8 sticky top-0 bg-[#0b0f19]/90 backdrop-blur z-30 pt-2">
+      <div class="flex items-center justify-between w-full md:w-auto">
+        <a href="#inicio" class="flex items-center gap-2 font-black text-xl tracking-wider text-white hover:opacity-90 transition">
+          <img src="assets/logo.jpg" alt="Logo MAZOLASTORE" class="w-8 h-8 object-contain rounded-md" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100'">
+          MAZOLASTORE
+        </a>
+      </div>
+
+      <!-- Links de Navegação -->
+      <nav class="flex items-center gap-6 text-sm font-medium text-slate-400">
+        <a href="#inicio" class="hover:text-cyan-400 transition">Início</a>
+        <a href="#destaques" class="hover:text-cyan-400 transition">Destaques</a>
+        <a href="#ofertas" class="hover:text-cyan-400 transition">Ofertas</a>
+        <a href="#contato" class="hover:text-cyan-400 transition">Contato</a>
+      </nav>
+
+      <!-- Botões do Header Desktop -->
+      <div class="hidden md:flex items-center gap-3">
+        <!-- Botão Admin (Visível apenas via atalho Ctrl + Shift + A) -->
+        <button id="admin-btn" onclick="toggleAddProductModal()" class="hidden bg-slate-800 hover:bg-slate-700 text-cyan-400 border border-cyan-500/30 text-xs font-bold px-3 py-2 rounded-full transition flex items-center gap-1">
+          <i data-lucide="plus-circle" class="w-4 h-4"></i>
+          <span>Cadastrar Produto</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO / BANNER PRINCIPAL -->
+    <section id="inicio" class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-900 via-[#131b2e] to-slate-900 border border-slate-800 p-6 md:p-10 mb-10 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="max-w-xl">
+        <span class="inline-flex items-center gap-1.5 bg-cyan-950/80 text-cyan-400 border border-cyan-800/60 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Lançamentos 2026
+        </span>
+        <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight">
+          As Melhores Ofertas Tech com <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Compra Segura</span>
+        </h1>
+        <p class="text-slate-400 text-sm md:text-base mt-3">
+          Sua seleção dos melhores produtos do Mercado Livre e Shopee. Clique, confira e compre direto com a garantia oficial das plataformas!
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3 justify-center md:justify-start">
+          <a href="#destaques" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs px-6 py-3.5 rounded-xl transition shadow-lg shadow-cyan-500/20 flex items-center gap-2">
+            <span>Explorar Produtos</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Imagem do Banner Hero -->
+      <div class="w-full md:w-80 h-56 md:h-72 bg-slate-900/80 rounded-2xl border border-slate-800 flex items-center justify-center p-2 relative group overflow-hidden shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600" alt="Produto Destaque Tech" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition duration-500">
+        <div class="absolute bottom-3 left-3 bg-slate-950/80 backdrop-blur border border-slate-800 text-[11px] font-bold text-cyan-400 px-3 py-1 rounded-lg">
+          🔥 Mais Vendido da Semana
+        </div>
+      </div>
+    </section>
+
+    <!-- BARRA DE PESQUISA & FILTROS -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 bg-slate-900/60 p-3 rounded-xl border border-slate-800/80">
+      <div class="relative w-full sm:w-80">
+        <i data-lucide="search" class="w-4 h-4 absolute left-3 top-3 text-slate-500"></i>
+        <input type="text" id="search-input" onkeyup="filterProducts()" placeholder="O que você está procurando hoje?..." class="w-full bg-slate-950 text-slate-200 border border-slate-800 text-xs rounded-lg pl-9 pr-3 py-2.5 focus:outline-none focus:border-cyan-500 transition">
+      </div>
+
+      <!-- Filtros por Categoria -->
+      <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0 text-xs">
+        <button onclick="filterCategory('todos')" class="cat-btn bg-cyan-500 text-slate-950 font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">Todos</button>
+        <button onclick="filterCategory('calcados')" class="cat-btn bg-slate-800 text-slate-400 hover:text-white px-3 py-1.5 rounded-lg whitespace-nowrap border border-slate-700">Calçados</button>
+        <button onclick="filterCategory('audio')" class="cat-btn bg-slate-800 text-slate-400 hover:text-white px-3 py-1.5 rounded-lg whitespace-nowrap border border-slate-700">Áudio</button>
+        <button onclick="filterCategory('wearables')" class="cat-btn bg-slate-800 text-slate-400 hover:text-white px-3 py-1.5 rounded-lg whitespace-nowrap border border-slate-700">Wearables</button>
+        <button onclick="filterCategory('acessorios')" class="cat-btn bg-slate-800 text-slate-400 hover:text-white px-3 py-1.5 rounded-lg whitespace-nowrap border border-slate-700">Acessórios</button>
+      </div>
+    </div>
+
+    <!-- SEÇÃO: CATÁLOGO -->
+    <section id="destaques" class="mb-12">
+      <div class="mb-6 flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i data-lucide="flame" class="text-amber-400 w-5 h-5"></i> Catálogo em Destaque
+          </h2>
+          <p class="text-slate-400 text-xs md:text-sm mt-0.5">Aproveite os produtos com os melhores preços garantidos.</p>
+        </div>
+      </div>
+
+      <!-- Grid de Produtos -->
+      <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Inserido via JS -->
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contato" class="mt-16 pt-8 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-6 text-slate-400 text-xs">
+      <div>
+        <div class="flex items-center gap-2 font-bold text-base text-white mb-2">
+          <img src="assets/logo.jpg" alt="Logo MAZOLASTORE" class="w-5 h-5 object-contain rounded" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100'"> MAZOLASTORE
+        </div>
+        <p>© 2026 MAZOLASTORE. Todos os direitos reservados.</p>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="#" onclick="openGPTMakerChat()" class="flex items-center gap-1.5 text-cyan-400 hover:underline transition">
+          <i data-lucide="bot" class="w-4 h-4"></i> Ajuda com o Robô
+        </a>
+        <a href="#" class="hover:text-cyan-400 transition">Termos de Uso</a>
+        <a href="#" class="hover:text-cyan-400 transition">Garantia</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- MODAL: CADASTRAR PRODUTO -->
+  <div id="add-product-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#0b0f19] border border-slate-800 w-full max-w-lg rounded-2xl p-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+          <i data-lucide="plus-circle" class="text-cyan-400 w-5 h-5"></i> Painel de Cadastro de Produto
+        </h3>
+        <button onclick="toggleAddProductModal()" class="text-slate-400 hover:text-white p-1">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="product-form" onsubmit="handleCreateProduct(event)" class="mt-4 space-y-4 text-xs">
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Título do Produto *</label>
+          <input type="text" id="prod-title" required placeholder="Ex: Tênis Nike Court Vision Low" class="w-full bg-slate-950 text-slate-200 border border-slate-800 rounded-xl p-3 focus:outline-none focus:border-cyan-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Preço Atual (R$) *</label>
+            <input type="number" step="0.01" id="prod-price" required placeholder="379.99" class="w-full bg-slate-950 text-slate-200 border border-slate-800 rounded-xl p-3 focus:outline-none focus:border-cyan-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Preço Anterior (R$)</label>
+            <input type="number" step="0.01" id="prod-oldprice" placeholder="399.90" class="w-full bg-slate-950 text-slate-200 border border-slate-800 rounded-xl p-3 focus:outline-none focus:border-cyan-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Categoria *</label>
+            <select id="prod-category" required class="w-full bg-slate-950 text-slate-200 border border-slate-800 rounded-xl p-3 focus:outline-none focus:border-cyan-500">
+              <option value="calcados">Calçados</option>
+              <option value="audio">Áudio</option>
+              <option value="wearables">Wearables</option>
+              <option value="acessorios">Acessórios</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Selo / Tag *</label>
+            <input type="text" id="prod-tag" required placeholder="Ex: OFERTA, FRETE GRÁTIS" class="w-full bg-slate-950 text-slate-200 border border-slate-800 rounded-xl p-3 focus:outline-none focus:border-cyan-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Link de Afiliado (Mercado Livre/Shopee) *</label>
+          <input type="url" id="prod-afflink" required placeholder="https://meli.la/..." class="w-full bg-slate-950 text-slate-200 border border-slate-800 rounded-xl p-3 focus:outline-none focus:border-cyan-500">
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">URL da Imagem *</label>
+          <input type="url" id="prod-image" required placeholder="https://..." class="w-full bg-slate-950 text-slate-200 border border-slate-800 rounded-xl p-3 focus:outline-none focus:border-cyan-500">
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Descrição *</label>
+          <textarea id="prod-desc" required rows="3" placeholder="Descrição em poucas palavras..." class="w-full bg-slate-950 text-slate-200 border border-slate-800 rounded-xl p-3 focus:outline-none focus:border-cyan-500"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-3 rounded-xl transition shadow-lg shadow-cyan-500/20 text-sm">
+          Salvar no Catálogo
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SCRIPT LOCAL DA LOJA -->
+  <script>
+    const defaultProducts = [
+      {
+        id: 1,
+        title: "Tênis Nike Court Vision Low Next Nature",
+        category: "calcados",
+        tag: "FRETE GRÁTIS",
+        tagColor: "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+        price: 379.99,
+        oldPrice: 399.90,
+        desc: "Design clássico do basquete dos anos 80 combinado com o conforto ideal para o dia a dia.",
+        image: "https://http2.mlstatic.com/D_Q_NP_759199-MLB99753360926_122025-F-tnis-nike-court-vision-low-next-nature-feminino-_JM",
+        affiliateLink: "https://meli.la/2a7JZSU"
+      },
+      {
+        id: 2,
+        title: "Quantum Sound Pro Headset",
+        category: "audio",
+        tag: "OFERTA TECH",
+        tagColor: "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+        price: 899.00,
+        oldPrice: 1100.00,
+        desc: "Som surround 7.1 espacial, microfone com cancelamento de ruído e construção em alumínio leve.",
+        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500",
+        affiliateLink: "#"
+      },
+      {
+        id: 3,
+        title: "Nexus Chrono Smartwatch S2",
+        category: "wearables",
+        tag: "LANÇAMENTO",
+        tagColor: "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+        price: 1999.00,
+        oldPrice: 2400.00,
+        desc: "Monitoramento biométrico avançado, GPS integrado e bateria com duração de até 14 dias.",
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",
+        affiliateLink: "#"
+      }
+    ];
+
+    let isAdminVisible = false;
+    let savedProducts = JSON.parse(localStorage.getItem('mazolastore_products'));
+
+    if (!savedProducts || savedProducts.length === 0) {
+      localStorage.setItem('mazolastore_products', JSON.stringify(defaultProducts));
+      savedProducts = defaultProducts;
+    }
+
+    let products = savedProducts;
+
+    // Atalho secreto do Teclado para Painel Admin (Ctrl + Shift + A)
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
+        isAdminVisible = !isAdminVisible;
+        document.getElementById('admin-btn').classList.toggle('hidden', !isAdminVisible);
+        renderProducts();
+        alert(isAdminVisible ? "Modo Administrador Ativado!" : "Modo Administrador Desativado!");
+      }
+    });
+
+    function renderProducts(itemsToRender = products) {
+      const grid = document.getElementById('products-grid');
+      grid.innerHTML = '';
+
+      if (itemsToRender.length === 0) {
+        grid.innerHTML = `<p class="col-span-3 text-center text-slate-500 py-8">Nenhum produto encontrado nesta categoria.</p>`;
+        return;
+      }
+
+      itemsToRender.forEach(p => {
+        const oldPriceHTML = p.oldPrice 
+          ? `<span class="text-xs text-slate-500 line-through mr-2">R$ ${Number(p.oldPrice).toFixed(2)}</span>` 
+          : '';
+
+        const deleteButton = isAdminVisible ? `
+          <button onclick="deleteProduct(${p.id})" title="Excluir produto" class="absolute top-3 right-3 z-10 bg-rose-500/20 text-rose-400 hover:bg-rose-500 hover:text-white p-1.5 rounded-lg text-xs transition">
+            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+          </button>
+        ` : '';
+
+        grid.innerHTML += `
+          <div class="bg-[#131b2e] border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-slate-700 transition group relative shadow-lg">
+            ${deleteButton}
+
+            <div>
+              <div class="relative h-48 bg-slate-900 rounded-xl overflow-hidden mb-4 flex items-center justify-center">
+                <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=500'">
+              </div>
+              <span class="text-[10px] font-bold uppercase tracking-wider ${p.tagColor || 'text-cyan-400 bg-cyan-950/80 border-cyan-800'} border px-2 py-0.5 rounded">${p.tag}</span>
+              <h3 class="text-base font-bold text-white mt-2">${p.title}</h3>
+              <p class="text-xs text-slate-400 mt-1 line-clamp-2">${p.desc}</p>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-slate-800/60 flex items-center justify-between">
+              <div>
+                ${oldPriceHTML}
+                <span class="text-lg font-extrabold text-cyan-400 block">R$ ${Number(p.price).toFixed(2)}</span>
+              </div>
+              <a href="${p.affiliateLink || '#'}" target="_blank" rel="noopener noreferrer" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-4 py-2 rounded-xl transition flex items-center justify-center gap-1.5 text-xs shadow-md shadow-cyan-500/20">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+                <span>Comprar</span>
+              </a>
+            </div>
+          </div>
+        `;
+      });
+
+      lucide.createIcons();
+    }
+
+    function toggleAddProductModal() {
+      const modal = document.getElementById('add-product-modal');
+      modal.classList.toggle('hidden');
+    }
+
+    function handleCreateProduct(e) {
+      e.preventDefault();
+
+      const newProd = {
+        id: Date.now(),
+        title: document.getElementById('prod-title').value,
+        price: parseFloat(document.getElementById('prod-price').value),
+        oldPrice: document.getElementById('prod-oldprice').value ? parseFloat(document.getElementById('prod-oldprice').value) : null,
+        category: document.getElementById('prod-category').value,
+        tag: document.getElementById('prod-tag').value.toUpperCase(),
+        tagColor: "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+        affiliateLink: document.getElementById('prod-afflink').value,
+        image: document.getElementById('prod-image').value,
+        desc: document.getElementById('prod-desc').value
+      };
+
+      products.unshift(newProd);
+      localStorage.setItem('mazolastore_products', JSON.stringify(products));
+
+      renderProducts();
+      toggleAddProductModal();
+      document.getElementById('product-form').reset();
+    }
+
+    function deleteProduct(id) {
+      if(confirm("Deseja realmente remover este produto do catálogo?")) {
+        products = products.filter(p => p.id !== id);
+        localStorage.setItem('mazolastore_products', JSON.stringify(products));
+        renderProducts();
+      }
+    }
+
+    function openGPTMakerChat() {
+      const gptIframe = document.querySelector('iframe[src*="gptmaker"]') || document.querySelector('[class*="gptmaker"]');
+      if (gptIframe) {
+        gptIframe.click();
+      } else {
+        const floatBtn = document.querySelector('#gptmaker-float-button') || document.querySelector('div[class*="float"]');
+        if (floatBtn) floatBtn.click();
+      }
+    }
+
+    function filterProducts() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      const filtered = products.filter(p => 
+        p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query)
+      );
+      renderProducts(filtered);
+    }
+
+    function filterCategory(cat) {
+      if (cat === 'todos') {
+        renderProducts(products);
+      } else {
+        const filtered = products.filter(p => p.category === cat);
+        renderProducts(filtered);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      lucide.createIcons();
+    });
+  </script>
+
+  <!-- CHATBOT GPT MAKER MAZOLASTORE -->
+  <script
+    async
+    src="https://app.gptmaker.ai/widget/3F74D7DC4177C3C5E830A20A1A60BEF9/float.js">
+  </script>
+
+</body>
+</html>
