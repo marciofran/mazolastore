@@ -561,153 +561,168 @@
   }
 ];
     let isAdminVisible = false;
-    let savedProducts = JSON.parse(localStorage.getItem('mazolastore_products'));
+  
+  // Mantém seus produtos salvos no navegador normalmente
+  let savedProducts = JSON.parse(localStorage.getItem('mazolastore_products'));
+  let products = savedProducts && savedProducts.length > 0 ? savedProducts : defaultProducts;
 
-    if (!savedProducts || savedProducts.length === 0) {
-      localStorage.setItem('mazolastore_products', JSON.stringify(defaultProducts));
-      savedProducts = defaultProducts;
+  // Função para verificar se está acessando via link secreto (#admin) no Celular/PC
+  function checkAdminAccess() {
+    if (window.location.hash === '#admin') {
+      isAdminVisible = true;
+      const adminBtn = document.getElementById('admin-btn');
+      if (adminBtn) adminBtn.classList.remove('hidden');
+      renderProducts();
+    }
+  }
+
+  // Atalho de Teclado para Notebook (Ctrl + Shift + A)
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
+      isAdminVisible = !isAdminVisible;
+      const adminBtn = document.getElementById('admin-btn');
+      if (adminBtn) adminBtn.classList.toggle('hidden', !isAdminVisible);
+      renderProducts();
+      alert(isAdminVisible ? "Modo Administrador Ativado!" : "Modo Administrador Desativado!");
+    }
+  });
+
+  // Detecta o #admin assim que a página carrega
+  window.addEventListener('DOMContentLoaded', () => {
+    checkAdminAccess();
+    renderProducts();
+    if (window.lucide) lucide.createIcons();
+  });
+
+  // Detecta alteração na URL caso digite #admin com a página já aberta
+  window.addEventListener('hashchange', () => {
+    checkAdminAccess();
+  });
+
+  function renderProducts(itemsToRender = products) {
+    const grid = document.getElementById('products-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    if (itemsToRender.length === 0) {
+      grid.innerHTML = `<p class="col-span-3 text-center text-slate-500 py-8">Nenhum produto encontrado nesta categoria.</p>`;
+      return;
     }
 
-    let products = savedProducts;
+    itemsToRender.forEach(p => {
+      const oldPriceHTML = p.oldPrice 
+        ? `<span class="text-xs text-slate-500 line-through mr-2">R$ ${Number(p.oldPrice).toFixed(2)}</span>` 
+        : '';
 
-    // Atalho secreto do Teclado para Painel Admin (Ctrl + Shift + A)
-    document.addEventListener('keydown', (e) => {
-      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
-        isAdminVisible = !isAdminVisible;
-        document.getElementById('admin-btn').classList.toggle('hidden', !isAdminVisible);
-        renderProducts();
-        alert(isAdminVisible ? "Modo Administrador Ativado!" : "Modo Administrador Desativado!");
-      }
+      const deleteButton = isAdminVisible ? `
+        <button onclick="deleteProduct(${p.id})" title="Excluir produto" class="absolute top-3 right-3 z-10 bg-rose-500/20 text-rose-400 hover:bg-rose-500 hover:text-white p-1.5 rounded-lg text-xs transition">
+          <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+        </button>
+      ` : '';
+
+      grid.innerHTML += `
+        <div class="bg-[#131b2e] border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-slate-700 transition group relative shadow-lg">
+          ${deleteButton}
+
+          <div>
+            <div class="relative h-48 bg-slate-900 rounded-xl overflow-hidden mb-4 flex items-center justify-center">
+              <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=500'">
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider ${p.tagColor || 'text-cyan-400 bg-cyan-950/80 border-cyan-800'} border px-2 py-0.5 rounded">${p.tag}</span>
+            <h3 class="text-base font-bold text-white mt-2 line-clamp-2">${p.title}</h3>
+            <p class="text-xs text-slate-400 mt-1 line-clamp-2">${p.desc}</p>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800/60 flex items-center justify-between">
+            <div>
+              ${oldPriceHTML}
+              <span class="text-lg font-extrabold text-cyan-400 block">R$ ${Number(p.price).toFixed(2)}</span>
+            </div>
+            <a href="${p.affiliateLink || '#'}" target="_blank" rel="noopener noreferrer" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-4 py-2 rounded-xl transition flex items-center justify-center gap-1.5 text-xs shadow-md shadow-cyan-500/20">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+              <span>Comprar</span>
+            </a>
+          </div>
+        </div>
+      `;
     });
 
-    function renderProducts(itemsToRender = products) {
-      const grid = document.getElementById('products-grid');
-      grid.innerHTML = '';
+    if (window.lucide) lucide.createIcons();
+  }
 
-      if (itemsToRender.length === 0) {
-        grid.innerHTML = `<p class="col-span-3 text-center text-slate-500 py-8">Nenhum produto encontrado nesta categoria.</p>`;
-        return;
-      }
+  function toggleAddProductModal() {
+    const modal = document.getElementById('add-product-modal');
+    if (modal) modal.classList.toggle('hidden');
+  }
 
-      itemsToRender.forEach(p => {
-        const oldPriceHTML = p.oldPrice 
-          ? `<span class="text-xs text-slate-500 line-through mr-2">R$ ${Number(p.oldPrice).toFixed(2)}</span>` 
-          : '';
+  function handleCreateProduct(e) {
+    e.preventDefault();
 
-        const deleteButton = isAdminVisible ? `
-          <button onclick="deleteProduct(${p.id})" title="Excluir produto" class="absolute top-3 right-3 z-10 bg-rose-500/20 text-rose-400 hover:bg-rose-500 hover:text-white p-1.5 rounded-lg text-xs transition">
-            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-          </button>
-        ` : '';
+    const newProd = {
+      id: Date.now(),
+      title: document.getElementById('prod-title').value,
+      price: parseFloat(document.getElementById('prod-price').value),
+      oldPrice: document.getElementById('prod-oldprice').value ? parseFloat(document.getElementById('prod-oldprice').value) : null,
+      category: document.getElementById('prod-category').value,
+      tag: document.getElementById('prod-tag').value.toUpperCase(),
+      tagColor: "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+      affiliateLink: document.getElementById('prod-afflink').value,
+      image: document.getElementById('prod-image').value,
+      desc: document.getElementById('prod-desc').value
+    };
 
-        grid.innerHTML += `
-          <div class="bg-[#131b2e] border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-slate-700 transition group relative shadow-lg">
-            ${deleteButton}
+    products.unshift(newProd);
+    localStorage.setItem('mazolastore_products', JSON.stringify(products));
 
-            <div>
-              <div class="relative h-48 bg-slate-900 rounded-xl overflow-hidden mb-4 flex items-center justify-center">
-                <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=500'">
-              </div>
-              <span class="text-[10px] font-bold uppercase tracking-wider ${p.tagColor || 'text-cyan-400 bg-cyan-950/80 border-cyan-800'} border px-2 py-0.5 rounded">${p.tag}</span>
-              <h3 class="text-base font-bold text-white mt-2">${p.title}</h3>
-              <p class="text-xs text-slate-400 mt-1 line-clamp-2">${p.desc}</p>
-            </div>
+    renderProducts();
+    toggleAddProductModal();
+    document.getElementById('product-form').reset();
+  }
 
-            <div class="mt-4 pt-4 border-t border-slate-800/60 flex items-center justify-between">
-              <div>
-                ${oldPriceHTML}
-                <span class="text-lg font-extrabold text-cyan-400 block">R$ ${Number(p.price).toFixed(2)}</span>
-              </div>
-              <a href="${p.affiliateLink || '#'}" target="_blank" rel="noopener noreferrer" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-4 py-2 rounded-xl transition flex items-center justify-center gap-1.5 text-xs shadow-md shadow-cyan-500/20">
-                <i data-lucide="external-link" class="w-4 h-4"></i>
-                <span>Comprar</span>
-              </a>
-            </div>
-          </div>
-        `;
-      });
-
-      lucide.createIcons();
-    }
-
-    function toggleAddProductModal() {
-      const modal = document.getElementById('add-product-modal');
-      modal.classList.toggle('hidden');
-    }
-
-    function handleCreateProduct(e) {
-      e.preventDefault();
-
-      const newProd = {
-        id: Date.now(),
-        title: document.getElementById('prod-title').value,
-        price: parseFloat(document.getElementById('prod-price').value),
-        oldPrice: document.getElementById('prod-oldprice').value ? parseFloat(document.getElementById('prod-oldprice').value) : null,
-        category: document.getElementById('prod-category').value,
-        tag: document.getElementById('prod-tag').value.toUpperCase(),
-        tagColor: "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-        affiliateLink: document.getElementById('prod-afflink').value,
-        image: document.getElementById('prod-image').value,
-        desc: document.getElementById('prod-desc').value
-      };
-
-      products.unshift(newProd);
+  function deleteProduct(id) {
+    if(confirm("Deseja realmente remover este produto do catálogo?")) {
+      products = products.filter(p => p.id !== id);
       localStorage.setItem('mazolastore_products', JSON.stringify(products));
-
       renderProducts();
-      toggleAddProductModal();
-      document.getElementById('product-form').reset();
     }
+  }
 
-    function deleteProduct(id) {
-      if(confirm("Deseja realmente remover este produto do catálogo?")) {
-        products = products.filter(p => p.id !== id);
-        localStorage.setItem('mazolastore_products', JSON.stringify(products));
-        renderProducts();
-      }
+  function exportProductsCode() {
+    const formattedCode = `const defaultProducts = ${JSON.stringify(products, null, 2)};`;
+    navigator.clipboard.writeText(formattedCode).then(() => {
+      alert("✅ Código da lista de produtos copiado!\n\nAgora abra seu VS Code ou GitHub, selecione o trecho 'const defaultProducts = [...]' e cole por cima.");
+    }).catch(err => {
+      console.error("Erro ao copiar: ", err);
+      alert("Não foi possível copiar automaticamente.");
+    });
+  }
+
+  function openGPTMakerChat() {
+    const gptIframe = document.querySelector('iframe[src*="gptmaker"]') || document.querySelector('[class*="gptmaker"]');
+    if (gptIframe) {
+      gptIframe.click();
+    } else {
+      const floatBtn = document.querySelector('#gptmaker-float-button') || document.querySelector('div[class*="float"]');
+      if (floatBtn) floatBtn.click();
     }
+  }
 
-    function exportProductsCode() {
-      const formattedCode = `const defaultProducts = ${JSON.stringify(products, null, 2)};`;
-      navigator.clipboard.writeText(formattedCode).then(() => {
-        alert("✅ Código da lista de produtos copiado!\n\nAgora abra seu VS Code, selecione o trecho 'const defaultProducts = [...]' e cole (Ctrl + V) por cima.");
-      }).catch(err => {
-        console.error("Erro ao copiar: ", err);
-        alert("Não foi possível copiar automaticamente.");
-      });
-    }
+  function filterProducts() {
+    const query = document.getElementById('search-input').value.toLowerCase();
+    const filtered = products.filter(p => 
+      p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query)
+    );
+    renderProducts(filtered);
+  }
 
-    function openGPTMakerChat() {
-      const gptIframe = document.querySelector('iframe[src*="gptmaker"]') || document.querySelector('[class*="gptmaker"]');
-      if (gptIframe) {
-        gptIframe.click();
-      } else {
-        const floatBtn = document.querySelector('#gptmaker-float-button') || document.querySelector('div[class*="float"]');
-        if (floatBtn) floatBtn.click();
-      }
-    }
-
-    function filterProducts() {
-      const query = document.getElementById('search-input').value.toLowerCase();
-      const filtered = products.filter(p => 
-        p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query)
-      );
+  function filterCategory(cat) {
+    if (cat === 'todos') {
+      renderProducts(products);
+    } else {
+      const filtered = products.filter(p => p.category === cat);
       renderProducts(filtered);
     }
-
-    function filterCategory(cat) {
-      if (cat === 'todos') {
-        renderProducts(products);
-      } else {
-        const filtered = products.filter(p => p.category === cat);
-        renderProducts(filtered);
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      renderProducts();
-      lucide.createIcons();
-    });
+  }
   </script>
 
   <!-- CHATBOT GPT MAKER MAZOLASTORE -->
