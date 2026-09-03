@@ -39,21 +39,22 @@
   <div class="max-w-6xl mx-auto bg-[#0b0f19] border border-slate-800/80 my-4 md:my-8 rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-2xl">
     
     <!-- HEADER -->
-    <header class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-slate-800/80 pb-4 mb-8 sticky top-0 bg-[#0b0f19]/90 backdrop-blur z-30 pt-2">
-      <div class="flex items-center justify-between w-full md:w-auto">
-        <a href="#inicio" class="flex items-center gap-2 font-black text-xl tracking-wider text-white hover:opacity-90 transition">
-          <img src="assets/logo.jpg" alt="Logo MAZOLASTORE" class="w-8 h-8 object-contain rounded-md" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100'">
-          MAZOLASTORE
-        </a>
-      </div>
-
-      <!-- Links de Navegação -->
+   <!-- Links de Navegação -->
       <nav class="flex items-center gap-6 text-sm font-medium text-slate-400">
         <a href="#inicio" class="hover:text-cyan-400 transition">Início</a>
         <a href="#destaques" class="hover:text-cyan-400 transition">Destaques</a>
         <a href="#ofertas" class="hover:text-cyan-400 transition">Ofertas</a>
         <a href="#contato" class="hover:text-cyan-400 transition">Contato</a>
       </nav>
+    </header>
+
+    <!-- BLOCO DO BOTÃO DE CADASTRO (FICA LOGO ABAIXO DO HEADER) -->
+    <div id="admin-container" class="hidden w-full mb-6 px-2">
+      <button onclick="toggleAddProductModal()" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black text-base py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 active:scale-95">
+        <i data-lucide="plus-circle" class="w-5 h-5"></i>
+        <span>+ CADASTRAR NOVO PRODUTO</span>
+      </button>
+    </div>
 
       <!-- Botões do Header Desktop -->
       <div class="hidden md:flex items-center gap-3">
