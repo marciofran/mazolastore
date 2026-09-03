@@ -38,33 +38,38 @@
   <!-- Container Principal -->
   <div class="max-w-6xl mx-auto bg-[#0b0f19] border border-slate-800/80 my-4 md:my-8 rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-2xl">
     
-    <!-- HEADER -->
-   <!-- Links de Navegação -->
-      <nav class="flex items-center gap-6 text-sm font-medium text-slate-400">
+    <!-- HEADER DA LOJA -->
+    <header class="flex items-center justify-between pb-6 mb-6 border-b border-slate-800/80">
+      <!-- Logo MAZOLASTORE -->
+      <a href="#" class="flex items-center gap-2 font-black text-xl md:text-2xl text-white tracking-wider">
+        <img src="assets/logo.jpg" alt="Logo MAZOLASTORE" class="w-8 h-8 object-contain rounded" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100'">
+        <span>MAZOLA<span class="text-cyan-400">STORE</span></span>
+      </a>
+
+      <!-- Links de Navegação -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
         <a href="#inicio" class="hover:text-cyan-400 transition">Início</a>
         <a href="#destaques" class="hover:text-cyan-400 transition">Destaques</a>
         <a href="#ofertas" class="hover:text-cyan-400 transition">Ofertas</a>
         <a href="#contato" class="hover:text-cyan-400 transition">Contato</a>
       </nav>
-    </header>
 
-    <!-- BLOCO DO BOTÃO DE CADASTRO (FICA LOGO ABAIXO DO HEADER) -->
-    <div id="admin-container" class="hidden w-full mb-6 px-2">
-      <button onclick="toggleAddProductModal()" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black text-base py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 active:scale-95">
-        <i data-lucide="plus-circle" class="w-5 h-5"></i>
-        <span>+ CADASTRAR NOVO PRODUTO</span>
-      </button>
-    </div>
-
-      <!-- Botões do Header Desktop -->
+      <!-- Botão Admin Desktop (Atalhos/Painel) -->
       <div class="hidden md:flex items-center gap-3">
-        <!-- Botão Admin (Visível apenas via atalho Ctrl + Shift + A) -->
         <button id="admin-btn" onclick="toggleAddProductModal()" class="hidden bg-slate-800 hover:bg-slate-700 text-cyan-400 border border-cyan-500/30 text-xs font-bold px-3 py-2 rounded-full transition flex items-center gap-1">
           <i data-lucide="plus-circle" class="w-4 h-4"></i>
           <span>Cadastrar Produto</span>
         </button>
       </div>
     </header>
+
+    <!-- BLOCO DO BOTÃO DE CADASTRO (RESPONSIVO PARA CELULAR) -->
+    <div id="admin-container" class="hidden w-full mb-6">
+      <button onclick="toggleAddProductModal()" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black text-base py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 active:scale-95">
+        <i data-lucide="plus-circle" class="w-5 h-5"></i>
+        <span>+ CADASTRAR NOVO PRODUTO</span>
+      </button>
+    </div>
 
     <!-- HERO / BANNER PRINCIPAL -->
     <section id="inicio" class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-900 via-[#131b2e] to-slate-900 border border-slate-800 p-6 md:p-10 mb-10 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6">
@@ -223,514 +228,230 @@
 
   <!-- SCRIPT LOCAL DA LOJA -->
   <script>
-   const defaultProducts = [
-  {
-    "id": 1788451764591,
-    "title": "Celular Samsung Galaxy A17 Com Ia, 128gb, 4gb Ram, Câm De 50mp, Tela De 6.7 , Nfc, Ip54 - Preto",
-    "price": 799.89,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/2G8WUbq",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_807017-MLA91535682558_092025-F.webp",
-    "desc": "Celular Samsung Galaxy A17, com IA integrada, 128GB, 4GB RAM, 4GB RAM Plus, Câmera Tripla Traseira de até 50MP, Câmera Frontal de 13 MP,Tela resistente Super AMOLED de 6.7\", Processador Helio G99 Octa-Core de 6nm, Android 15 com 6 atualizações, IP54 resistencia à água e poeira, NFC, Samsung Wallet, Bateria de 5.000mAh, Dual Chip.\n\n\nO Galaxy A17 chegou para transformar a maneira como você se conecta, tendo tudo para ser seu primeiro Galaxy com IA. Com ele, você vai registrar cada momento com uma câmera tripla de até 50MP. Sua telona de 6,7\" de Super AMOLED tem mais resistência. Feito para durar, modelo traz design moderno, acabamento premium, até 6 atualizações de Android e até seis anos de atualizações de segurança, proteção IP54 contra água e poeira, unindo estilo, funcionalidade e resistência em um só aparelho.\n\nComo novidade o novo Galaxy A17 possui Gemini integrado e o Circule para Pesquisar, ferramentas de IA do Google. O Gemini integrado enriquece seu dia a dia com um assistente de IA que é fácil de usar, que entende o que você diz de maneira natural. Com um simples toque no botão lateral você acessa o Gemini rapidamente. Com a ação integrada entra aplicativos, o Gemini integra não somente aplicativos Google, mas também aos aplicativos nativos do Galaxy e de terceiros para oferecer assistência inteligente em toda a experiência do seu dispositivo. Usando o Circule para Pesquisar, você pode intuitivamente pesquisar qualquer coisa na tela, como imagens, músicas ou texto. Encontre respostas e ações necessárias rapidamente. Na pesquisa de imagens, basta circular um item ou objeto para visualizar informações adicionais sobre ele. Quer saber mais sobre uma música? Toque, cante ou cantarole para encontrar mais informações sobre ela. E com os pins de ação faça chamadas, envie e-mails ou visite um site com apenas um toque na tela.\n\nA câmera tripla de 50MP com estabilização óptica (OIS) permite que você capture cada detalhe de diferentes ângulos para fotos e vídeos criativos mesmo em movimento. Leve suas memórias para o próximo nível.\n\nA telona Super AMOLED de 6,7” FHD+ te entrega cores mais vivas, contraste profundo e brilho otimizado para qualquer ambiente, seja assistindo filmes, jogando ou navegando nas redes sociais. Fique despreocupado, o Gorilla Glass Victus te entrega durabilidade superior contra riscos e quedas.\n\nFeito para durar e atualizado por mais tempo, o Galaxy A17 oferece uma experiência duradoura e segura, assegurando até 6 atualizações de sistema operacional Android e até 6 anos de atualizações de segurança. Além disso, conta com proteção IP54, garantindo resistência à água e poeira. Sua segurança é aprimorada através do Samsung Knox Vault, garantindo que dados confidenciais e sigilosos, como senhas e pins de desbloqueio, permaneçam seguros.\n\nO seu acabamento sofisticado e fino, com espessura de 7,5mm e apenas 190g traz conforto e ergonomia.\n\nCom o aplicativo SmartSwitch você transfere de forma fácil e prática o conteúdo do seu celular anterior (fotos, contatos, eventos do calendário, notas, configurações do dispositivo e muito mais).\n\nO Galaxy A17 é mais do que um smartphone é seu novo parceiro para trabalhar, se divertir e se conectar, combinando tecnologia de ponta com a confiabilidade da Samsung."
-  },
-  {
-    "id": 1788451465393,
-    "title": "Fone De Ouvido Headphone Dapon H02D Bluetooth 5.1 Over-ear 22h Preto",
-    "price": 74,
-    "oldPrice": null,
-    "category": "audio",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/1YJc2bW",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_673950-MLA99394598783_112025-F.webp",
-    "desc": "Fone De Ouvido Bluetooth Dapon H02D\n\nDescubra o Fone De Ouvido Bluetooth Dapon H02D, uma combinação perfeita de tecnologia e conforto para todos os amantes de música. Com um design inovador, ele permite a alternância entre o modo sem fio e com fio através de um conector de 3,5 mm, oferecendo versatilidade para diferentes situações.\n\nConforto e Ajuste\nO Dapon H02D conta com um design dobrável, que se adapta facilmente a diferentes formatos de cabeça. Sua estrutura compacta permite que você o dobre no tamanho de uma palma, facilitando o transporte. As almofadas macias e o protetor auricular acolchoado proporcionam um conforto excepcional, permitindo longas horas de uso sem desconforto.\n\nQualidade de Som Superior\nDesenvolvido com a colaboração de profissionais e amantes de música, o H02D oferece um som sintonizado que garante uma experiência auditiva de alta qualidade. A equipe Dapon trabalhou arduamente para melhorar a performance sonora, resultando em graves profundos e um áudio claro.\n\nLonga Duração da Bateria\nCom uma bateria de alta capacidade de 350mAh, você pode desfrutar de até 22 horas de música contínua após apenas 2 horas de carga. Além disso, o tempo de espera chega a impressionantes 60 horas, garantindo que você não precise se preocupar com recargas frequentes.\n\nControle Prático\nO fone de ouvido Dapon H02D torna o controle de suas músicas e chamadas uma tarefa simples. Com apenas 3 toques, você pode gerenciar suas faixas e atender chamadas com seu microfone integrado. Os botões de volume e atendimento de chamadas são facilmente acessíveis, tudo ao seu alcance.\n\nEspecificações Técnicas:\n- Bluetooth 5.1: Conexão estável e sem interferências em até 10 metros\n- Bateria de 350mAh: Até 22 horas de música ou chamadas com 2–3 horas de carga\n- Interface Tipo-C: Carregamento rápido e moderno\n- Modo com fio (P2 3,5 mm): Permite uso mesmo sem bateria\n- Microfone integrado: Ideal para chamadas e reuniões online\n- Design dobrável e ajustável: Fácil de transportar e confortável no uso\n- Almofadas acolchoadas: Conforto prolongado sem desconforto\n- Botões no fone: Controle de volume, faixas e chamadas\n- Indicador LED: Exibe status de carga e conexão\n- Resposta de frequência: 20 Hz – 20.000 Hz\n- Tempo de espera: Até 60 horas\n- Distância de transmissão: Até 10 metros\n\nConteúdo da Embalagem:\n- 1x Fone de Ouvido Sem Fio Dapon H02D\n- 1x Cabo USB Tipo-C (30 cm)\n- 1x Cabo P2 para P2 (1,2 m)\n\nDimensões da embalagem:\n- Altura: 21 cm\n- Largura: 19,8 cm\n- Comprimento: 8,7 cm\n- Peso: 330 gramas\n\nNão perca a oportunidade de elevar sua experiência musical ao próximo nível com o Fone De Ouvido Bluetooth Dapon H02D!"
-  },
-  {
-    "id": 1788185788112,
-    "title": "Parafusadeira sem fio Makita Professional DF001DW azul-turquesa 60 Hz",
-    "price": 370.4,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/31oRDYZ",
-    "image": "https://http2.mlstatic.com/D_Q_NP_808400-MLA99979722403_112025-F.webp",
-    "desc": "Parafusadeira Dobrável DF001DW a Bateria 3.6V + Kit 81 Peças – Makita\n\nParafusadeira Dobrável modelo DF001DW da Makita conta com um estojo com 81 peças para complementar sua oficina, foi desenvolvida para a colocação de parafusos. Equipamento pode ser usado reto como bastão e em ângulos como pistola. Compacta e prática de usar, possui rotação reversível e iluminação.\n\nAplicação:\n- Utilizada para apertar parafusos em juntas de diversos materiais\n\nCaracterísticas/Vantagens:\n- Compacta e prática.\n- Pode ser usada no modo reto ou pistola.\n- Rotação reversível.\n- Iluminação de trabalho.\n- Acompanha estojo com 81 acessórios.\n- Recarregável na tomada 110/220V, no computador ou veículo, via cabo USB.\n\nDetalhes Técnicos:\n- Rotações por minuto: 220\n- Torque: 6 N.m\n- Dimensões(C x L x A): 287 x 47 x 51mm\n- Peso: 0.36kg\n- Bateria: 3.6V\n\nConteúdo da Embalagem:\n- Parafusadeira Dobrável DF001DW Bateria 3.6V\n- Adaptador AC BIVOLT, cabo USB e maleta com 81 acessórios.\n\nComposição dos acessórios:\n- 8 Bits Fenda: (2) 0.6 x 4.5 mm, (2) 0.8 x 5.5 mm, (2) 1.0 x 5.5 mm, (2) 1.2 x 6.5 mm\n- 12 Bits Pozidriv: (3) PZ0, (3) PZ1, (3) PZ2 e (3)PZ3\n- 12 Bits Allen: (2) H2, (2) 2.5, (2) H3, (2) H4, (2) H5, (2) H6\n- 5 Bits Tork: (3) T10, (2) T15\n- 10 Bits Phillips: (3) PH0, (3) PH1, (3) PH2 e PH3\n- 3 Bits Tork 50mm: T20, T25 e T30\n- 3 Bits Phillips 50mm: PH1, PH2 e PH3\n- 6 Bits Canhão: 5, 6, 7, 8, 9 e 10 mm\n\n* Imagens meramente ilustrativas.\n* Todas as informações divulgadas são de responsabilidade do Fabricante/Fornecedor."
-  },
-  {
-    "id": 1787787815018,
-    "title": "Tênis Esportivo Masculino Delta Olympikus",
-    "price": 116.99,
-    "oldPrice": null,
-    "category": "calcados",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/1Q1cQza",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_666196-MLA99506601170_112025-F.webp",
-    "desc": "ESTILO E CONFORTO PARA O SEU DIA A DIA!\nO Tênis Esportivo Masculino Delta da Olympikus é ideal para quem busca conforto e maior performance nas suas corridas. Além de ser extremamente leve, ele é confortável e feito para que você se sinta bem durante todo o dia!\nConfeccionado com o cabedal têxtil de ótima qualidade, oferece bem-estar aos pés. O solado tem a tecnologia de amortecimento Evasense, que proporciona mais leveza, maciez e flexibilidade nas passadas. Com ajuste por cadarços, garante um calce firme e seguro. Não deixe para depois, aproveite o tênis masculino Delta da Olympikus e descubra o verdadeiro significado de conforto e estilo em suas atividades físicas.\n----------------------------------------------------------------------\nSOBRE A MARCA:\nA Olympikus é a maior marca esportiva do Brasil e, desde 1975, vem construindo uma longa relação com o esporte brasileiro, por ações sólidas e duradouras. A marca acredita e investe no esporte, buscando inovação e alta operação, por meio do seu Centro de Desenvolvimento e Tecnologia. Hoje está presente em toda a América do Sul e em mais de 12 mil pontos de venda no Brasil."
-  },
-  {
-    "id": 1787787534885,
-    "title": "Abridor De Latas Elétrico Branco",
-    "price": 51.39,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "NOVIDADE",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/2RGYK62",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_872942-CBT115251846716_082026-F.webp",
-    "desc": "Abridor de lata elétrico, compacto, bateria operada (necessita de 2 baterias AA, não incluído), 36V Tensão de operação, Material ABS"
-  },
-  {
-    "id": 1787787147407,
-    "title": "Espremedor Alho Inox Manual Triturador Amassador Cozinha Aço Inoxidável Abs Ergonômico Prensa Alho Pimenta Gengibre Fácil Limpeza Compacto",
-    "price": 10.34,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/2i5rn28",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_728600-MLA114154544902_082026-F.webp",
-    "desc": "O espremedor amassador triturador de alho inox manual foi desenvolvido para facilitar o preparo de alimentos na cozinha. Indicado para triturar alho, pimenta, gengibre e outros ingredientes pequenos com praticidade no dia a dia.\n\nPossui lâmina em aço inoxidável resistente à corrosão, permitindo maior durabilidade e facilidade na limpeza após o uso. O cabo em plástico ABS apresenta formato ergonômico que auxilia na pegada durante o manuseio.\n\nO funcionamento é realizado por pressão manual com movimento de balanço, permitindo triturar o alimento sem contato direto com as mãos. O tamanho dos furos foi projetado para obter consistência adequada no preparo.\n\nCom dimensões aproximadas de 11 cm x 5,2 cm x 7 cm e peso leve, pode ser armazenado facilmente em gavetas ou utensílios de cozinha. Pode ser lavado com água corrente ou em máquina de lavar louça.\n\nConteúdo da embalagem: 1 espremedor triturador de alho manual em aço inox.\n\nFAQ\n\nQual o material do produto?\nAço inox na lâmina e plástico ABS no cabo.\n\nServe apenas para alho?\nNão, pode triturar pimenta, gengibre e outros alimentos.\n\nPode lavar na máquina?\nSim, é compatível com lava-louças.\n\nQual o tamanho?\nAproximadamente 11x5,2x7 cm.\n\nEnferruja com o tempo?\nNão, o inox é resistente à corrosão."
-  },
-  {
-    "id": 1787786871494,
-    "title": "Câmera de Segurança IP Wi-Fi Lâmpada E27 HW 360° Full HD com Visão Noturna e Áudio - HW",
-    "price": 51.33,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/294GY4J",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_618454-MLA113146753504_072026-F.webp",
-    "desc": "Este produto possui marca registrada no INPI, protegida pelas leis de Propriedade Intelectual, assim como suas fotos, que são registradas como obras protegidas por direitos autorais, além de contar com registro de desenho industrial. A venda, reprodução ou utilização não autorizada deste produto, de suas imagens ou design, constitui infração, sujeita a penalidades legais. A violação desses direitos pode ser denunciada e levar a ações legais.\"\n\nProdutos da embalagem\n\n1 Câmeras Wi-Fi modelo lâmpada (E27)\n1 bocal/soquetes E27\nKit de fixação (buchas e parafusos)\nManual de instruções para configuração\n\nA câmera de segurança Wi-Fi modelo lâmpada foi feita para quem busca praticidade, segurança e controle total do ambiente no dia a dia. Com instalação simples no padrão E27, ela pode ser utilizada em qualquer bocal, igual uma lâmpada comum, permitindo uso rápido e sem necessidade de técnico. Compacta, funcional e fácil de usar, é ideal para quem quer praticidade no monitoramento. Seu design em formato de lâmpada ajuda a tornar a gravação menos perceptível, garantindo mais segurança e proteção para sua residência de forma eficiente e discreta.\n"
-  },
-  {
-    "id": 1787786551117,
-    "title": "Patinete Elétrico Foston Scooter S09 Pro 2024 Cor Preto",
-    "price": 2230.9,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/2swLhGs",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_872730-MLA95500784090_102025-F.webp",
-    "desc": "O Patinete Elétrico Foston Scooter S09 Pro 2024 é a escolha ideal para quem busca mobilidade e praticidade no dia a dia. Com uma potente bateria de íon de lítio de 10400 mAh, você pode percorrer até 35 km com uma única carga, tornando seus deslocamentos mais eficientes. Seu motor de 350 W permite atingir uma velocidade máxima de 25 km/h, ideal para se locomover rapidamente pela cidade.\n\nO design dobrável facilita o armazenamento e o transporte, enquanto o sistema de freios a disco ventilado traseiro garante segurança em todas as suas viagens. Equipado com luzes LED e conectividade Bluetooth, o S09 Pro combina tecnologia e conforto, proporcionando uma experiência de condução moderna e segura.\n\nRecomendado para maiores de 14 anos e com capacidade para suportar até 120 kg, este patinete é perfeito para adolescentes e adultos que desejam uma alternativa prática e sustentável para o transporte urbano. Aproveite a liberdade de se deslocar com estilo e eficiência com o Foston Scooter S09 Pro 2024.\n\nAviso legal\n• Idade mínima recomendada: 10 anos."
-  },
-  {
-    "id": 1787786225835,
-    "title": "Celular Motorola Moto G06 128gb 4gb Ram Orange",
-    "price": 699,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/1FMX4Z1",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_651353-MLA115768418107_082026-F.webp",
-    "desc": "O Motorola Moto G06 é um smartphone projetado para quem procura um equilíbrio perfeito entre desempenho e estilo. Com uma memória interna de 128 GB, você terá espaço suficiente para armazenar seus aplicativos, fotos e vídeos sem preocupações. Sua elegante cor laranja não só se destaca, mas também se adapta a qualquer ocasião.\n\nEquipado com 4 GB de RAM, este dispositivo garante uma operação suave, permitindo que você realize várias tarefas sem interrupção. A linha Moto G da Motorola é conhecida por sua durabilidade e eficiência, tornando-a a escolha ideal para o uso diário.\n\nO Moto G06 tem um slot para cartão SIM, facilitando a conexão e o gerenciamento de suas comunicações. Seu design ergonômico e leve o torna confortável de usar, ideal para quem está sempre em movimento.\n\nEste smartphone é perfeito para estudantes, profissionais e qualquer pessoa que precise de um dispositivo confiável e acessível. Com o Motorola Moto G06, você desfrutará de uma experiência móvel completa, sem comprometer a qualidade ou o desempenho"
-  },
-  {
-    "id": 1787785973498,
-    "title": "Macaco Elétrico Para Carro 5t 12v Com Chave De Impacto MAIS VENDIDO 1º em Elétrico 4.9 Avaliação 4.9 de 5. 62 opiniões.",
-    "price": 660.91,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/3218efH",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_881330-MLB112041817463_052026-F-macaco-eletrico-para-carro-5t-12v-com-chave-de-impacto.webp",
-    "desc": "CAPACIDADE DE PESO: O macaco elétrico para carro pode levantar no máximo 5T (10.000 libras) em uma faixa de 15 a 45 cm, e a estrutura de travamento automático garante que os macacos estejam sempre estáveis. O corpo de aço pintado do macaco aumenta a durabilidade e a resistência à ferrugem.\n\nGRANDE ALCANCE DE ELEVAÇÃO: A faixa de altura de elevação do kit de macaco elétrico para carro é de 15 a 45 cm. Levante seu veículo em menos de um minuto com um macaco e troque um pneu rapidamente. Design antiderrapante com ranhuras cruzadas. Altura ajustável.\n\nNota: Os macacos hidráulicos não conseguem suportar a carga depois de um objeto ter sido levantado. Após o levantamento, os macacos devem ser imediatamente substituídos por estruturas ou blocos de suporte adequados para garantir a estabilidade e a segurança da estrutura levantada.\n\nKIT TUDO EM UM: O conjunto de macaco elétrico para carro inclui um macaco elétrico para carro, uma bomba de ar automática e uma chave de impacto elétrica, para que você possa atender a diversas demandas. O painel é fácil de entender e operar. O macaco pode subir e descer automaticamente simplesmente pressionando o botão, e o manômetro é conveniente para visualizar a pressão de inflação.\n\nILUMINAÇÃO DIANTEIRA E TRASEIRA: Há uma iluminação brilhante embutida na parte frontal da máquina e uma luz de advertência vermelha e azul na parte traseira, o que a torna mais conveniente para operar à noite e aumenta seu fator de segurança.\n\n\nSEGURO E ESSENCIAL: O macaco elétrico para de funcionar automaticamente quando atinge seu limite de altura. Este macaco hidráulico elétrico é essencial para emergências na estrada e também é útil para reparos de carros e caminhões pesados em casa. Não há necessidade de pedir ajuda a alguém para trocar os pneus quando você estiver parado na estrada.\n\nObservação: Este produto deve ser usado após a partida do veículo, caso contrário, ele queimará.\n\nEspecificação:\nTensão de entrada: DC12V\nCarga máxima: 5T (11000 lbs)\nFaixa de altura de elevação: 15-45 cm\nComprimento do cabo de alimentação: 3,5 m\nPotência nominal: 180W\nCorrente nominal: 15A\nFluxo de ar da bomba de ar: 35L/min\nPressão máxima da bomba de ar: 150PSI\nTorque máximo de 480 Newton-metro\n\nAcessórios:\n1. Um cabo de alimentação de 3,5 mm\n2. Um conjunto de grampos de bateria\n3. Dois fusíveis\n4. Um par de luvas\n5. Uma chave hexagonal\n6. Um manual do produto (em inglês)\n7. Cabeça superior para especificações de 155-450 mm\n8. Chave elétrica x1\n9. Soquetes x2\n10. Quebra-vidros\n11. Bocal de ar.\n(Macaco hidráulico controlado por fio)\n\nGarantia do vendedor: 30 dias\n\n"
-  },
-  {
-    "id": 1787785691710,
-    "title": "Air Fryer Forno Pizza Multioven 18,3l Gallant Gfe18 127v",
-    "price": 559,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/2is5d15",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_613609-MLB116609752685_082026-F-air-fryer-forno-pizza-multioven-183l-gallant-gfe18-127v.webp",
-    "desc": "A AirFryer Gallant Pizza MultiOven é a escolha ideal para quem busca praticidade, saúde e versatilidade na cozinha. Com capacidade de 18,3 litros e funções pré-programadas, ele permite preparar desde pizzas crocantes até carnes suculentas, bolos fofinhos e vegetais grelhados, tudo de forma rápida e sem a necessidade de óleo.\nDiferente de outros modelos do mercado, o Gallant acompanha uma pedra para pizza quadrada de 30x30 cm, que garante assados mais uniformes e crocância especial. Vale lembrar: para utilizar a pedra é necessário untá-la antes do uso, potencializando ainda mais o resultado final.\nCompacto, moderno e de fácil manuseio, o forno conta com painel digital interativo, funções práticas e acessórios completos, como bandeja de assar, grelha, bandeja de migalhas e a exclusiva pedra de pizza. Tudo para transformar sua rotina culinária em momentos de sabor e eficiência.\nCaracterísticas do produto\n• Capacidade de 18,3 litros: ideal para preparar refeições completas para toda a família.\n• Pedra para pizza quadrada (30x30 cm): assa de forma uniforme e garante crocância, sendo um diferencial em relação às pedras redondas tradicionais.\n• Funções pré-programadas: pizza, airfryer, assar, torrar, desidratar, fermentar, descongelar e manter aquecido.\n• Painel digital intuitivo: opções de temperatura, tempo, iniciar/pausar/cancelar, controle de luz e ventilador, além de botão giratório e liga/desliga.\n• Ampla faixa de temperatura (30°C a 230°C): adapta-se a diferentes tipos de preparo.\n• Acessórios inclusos: bandeja de assar, grelha, bandeja de migalhas e pedra de pizza.\n• Potência de 1700W: alto desempenho para um preparo rápido e eficiente.\n• Design moderno e funcional: com luz interna, aviso sonoro e desligamento automático.\n• Multifuncionalidade: prepara pizzas, carnes, frangos, peixes, vegetais, bolos, pães e muito mais.\nDúvidas Frequentes\n1. Preciso untar a pedra de pizza antes de usar?\nSim, para garantir maior durabilidade e evitar que os alimentos grudem, é recomendado untar a pedra antes de cada uso.\n2. Esse forno substitui uma airfryer tradicional?\nSim. Ele possui função airfryer e pode preparar alimentos crocantes e saudáveis, com menos óleo.\n3. Posso preparar bolos e massas doces nele?\nSim, a ampla variação de temperatura e as funções de assar permitem preparar bolos, muffins e massas doces com ótimo resultado.\n4. O forno possui desligamento automático?\nSim, além do aviso sonoro, o equipamento desliga automaticamente ao final do preparo.\n5. Ele é adequado para cozinhas pequenas?\nSim, seu design compacto (50,4 x 37,6 x 19,7 cm) facilita a acomodação em diferentes espaços, sem perder desempenho.\nEspecificações Técnicas\nMarca: Gallant\nModelo: GFE18OPTA-PT127\nClassificação de uso: Residencial\nTipo: Sem Óleo\nCapacidade Total: 18,3 L\nCor: Preto\nTensão: 127V ou 220V (não é bivolt)\nTipo de Tomada: 20A (127V)\nFunções Pré-Programadas: Pizza / Airfryer / Assar / Torrar / Desidratar / Fermentar / Descongelar / Manter Aquecido\nFunções no Painel: Temperatura / Tempo / Iniciar, Pausar e Cancelar / Luz e Ventilador / Botão Giratório / Liga e Desliga\nAcompanha Acessórios: Bandeja de Assar / Grelha / Bandeja de Migalhas / Pedra para Pizza\nPotência: 1700W\nResistência Superior: 950W (317W cada)\nResistência Inferior: 750W (250W cada)\nTimer: Sim\nTemperatura Min/Máx: 30 – 230 °C\nComprimento do Cabo Elétrico: 1 m\nFrequência: 60 Hz\nAviso Sonoro: Sim\nLuz Interna: Sim\nLuz Indicadora de Funcionamento: Sim\nPainel Digital: Sim\nDesligamento Automático: Sim\nMaterial: Aço\nTipos de Alimentos que Comporta: Pizza / Batatas fritas / Frango / Carne / Canapés / Peixe / Vegetais / Bolos / Muffins / Massas doces / Pão\nDimensões da Pedra: 30 x 30 cm\nDimensões do Cesto (C x L): 33,2 x 29 cm\nDimensões Internas (C x L x A): 33,3 x 32,6 x 16,8 cm\nDimensões do Produto (C x L x A): 50,4 x 37,6 x 19,7 cm\nDimensões da Caixa (C x L x A): 56,8 x 44 x 28,5 cm\nPeso Líquido: 6,5 kg\nPeso Bruto: 7,7 kg\nGarantia: 12 meses\n\nGarantia de fábrica: 12 meses"
-  },
-  {
-    "id": 1787785287742,
-    "title": "Tênis Nike Air Max Nuaxis Masculino",
-    "price": 370.49,
-    "oldPrice": null,
-    "category": "calcados",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/1HX1fxG",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_987155-MLB100382942534_122025-F-tnis-nike-air-max-nuaxis-masculino.webp",
-    "desc": "Respirável e confortável, o Air Max Nuaxis está pronto para sua rotina diária. Assim, você pode cuidar do visual e do conforto ao mesmo tempo. Ele combina uma unidade Air intuitiva com elementos de design inspirados no Air Max 270. É o tênis ideal para quem busca praticidade no dia a dia.\nBenefícios\nA sola de borracha oferece tração durável.A tela na parte de cima ajuda a manter o frescor quando a vida fica agitada.Macio e confortável, o amortecimento Max Air oferece o nível certo de suporte.Max Air\nLook cativante. Janela na sola. O lendário designer Tinker Hatfield se inspirou nos detalhes da arquitetura parisiense para restabelecer a tecnologia Air como líder em amortecimento. Macio e confortável, o Max Air tem a quantidade certa de sustentação.\n\n- OS PRODUTOS SÃO ORIGINAIS?\nSim, nós somos a loja oficial da Nike no Mercado Livre. Todos os produtos são originais e com nota fiscal.\n\n- VOCÊS ENVIAM NOTA FISCAL?\nSim, todos os produtos são enviados com a Nota Fiscal.\n\n- CASO O TAMANHO NÃO SIRVA, É POSSÍVEL TROCAR?\nNão é possível realizar trocas através do Mercado Livre, mas você pode devolver o produto, receber o reembolso e comprar novamente no tamanho correto de forma simples.\n\n- OS PRODUTOS TEM GARANTIA?\nSim, todos os produtos têm garantia de 90 (noventa) dias contra defeitos de fabricação.\n\n- VOCÊS FATURAM PARA B2B/CNPJ?\nOs produtos são vendidos apenas para o consumidor final. Não realizamos vendas para empresas através do Mercado Livre.\n\n- QUAL O VALOR DO FRETE?\nO valor do frete é calculado automaticamente pelo Mercado Livre. Basta inserir o CEP de entrega no campo abaixo do valor do produto.\n\n- HORÁRIO DE ATENDIMENTO\nDe segunda à sexta-feira, das 09h às 18:00."
-  },
-  {
-    "id": 1787784949719,
-    "title": "Kit 2 Pacotes De Fralda Huggies Tripla Proteção P, M, G, Xg",
-    "price": 58.9,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/2wWsHpe",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_850862-MLB89338500497_082025-F-kit-2-pacotes-de-fralda-huggies-tripla-proteco-p-m-g-xg.webp",
-    "desc": "Kit com 2 Pacotes de Fralda descartáveis Huggies Tripla Proteção.\n \nAs fraldas descartáveis Huggies é o que você precisa para ficar tranquila a qualquer hora do dia e inclusive a noite!\n \n- Fralda Descartável\n- Cobertura Tripla proteção\n- Protege com suavidade\n- Barreira antivazamento\n- Fitas adesivas para melhor ajuste\n- Formato anatômico\n- Fitas adesivas permite o abrir e fechar sem estragar a fralda\n- ecnologia Xtra-Protect\n- Excelente absorção\n- Toque de algodão\n \nTamanhos disponíveis:\n \nP  -  18  unidades cada pacote  /  3,5 a 6 kg   \nG  - 14  unidades cada pacote  /  9 a 12,5 kg   \nM -  16  unidades cada pacote  /  5,5 a 9,5 kg \nXG - 12  unidades cada pacote  /  12 a 15 kg \n \n "
-  },
-  {
-    "id": 1787784427693,
-    "title": "Câmera Retrovisor Dupla Para Carro Dashcam",
-    "price": 225.43,
-    "oldPrice": null,
-    "category": "acessorios",
-    "tag": "NOVIDADE",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/1238eJY",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_786209-CBT115694661005_082026-F.webp",
-    "desc": "Imagens nítidas 2K: A câmera espelhada possui um chip integrado de alta qualidade para gravar vídeos frontais de 1440P (1080P-1296P-1440P) e traseiros de 1440p (1080P-1296P-1440P). O sensor de imagem de alta definição 1440P pode cobrir facilmente as quatro pistas dianteiras e traseiras. Óculos de 6 camadas e tecnologia de super visão noturna, a câmera do painel captura vídeos e imagens nítidas mesmo em condições noturnas com pouca luz. Vídeo de alta definição, cena de restauração de alta definição, imagem real de alta definição, gravação de evidências no local é mais poderosa\nMais recursos inteligentes:\n1.Espelho retrovisor multimídia de transmissão;\n2. Visão traseira invertida\n3. Inversão do espelho da imagem traseira;\n4. Sensor G;\n5. Gravação em loop;\n6. Ângulo de visão da tela ajustável, etc.\nLista de produtos:\nGravador de condução de gravação dupla de 10,0 polegadas * 1\nCâmera de visão traseira AHD * 1\nCinto de borracha *2\nCarregador de carro * 1 (comprimento do cabo de alimentação 6,8 m)\nEspaçador * 1\nParafuso *2\n\nENVIO GARANTIDO PELO MERCADO LIVRE\n\nEnvío gratis entre 8/set e 24/set por ser tu primera compra\nEnvio da China \nPara comprar produtos internacionais seu CPF deve estar com a situação cadastral regular. O produto vem do exterior e será importado. Estará sujeito à declaração de importação e a impostos federais e estaduais.\nMais informações\nEstoque disponível\n\n\nQuantidade:\n1 unidade\n(5 disponíveis)\n\nComprar agora\n\nAdicionar ao carrinho\nVendido por\n+5 vendas\n\nDevolução grátis. Você tem 30 dias a partir da data de recebimento.\nCompra GarantidaVai abrir em uma nova janela. Receba o produto que está esperando ou devolvemos o dinheiro.\nAdicionar a uma lista\nIr para a página do vendedor\n\nSeguir\nSeguidores\n\n+500 Produtos\n\n+5\n\nVendas\n\n\nBom atendimento\n\n\nEntrega no prazo\n\nIr para a página do vendedor\nMeios de pagamento\nPague em até 8x sem juros!\n\nLinha de Crédito\n\nMercado Crédito\nCartões de crédito\n\nAmerican Express\nElo\nVisa\nMastercard\nPix\n\nPix\nBoleto bancário\n\nBoleto\nConfira outros meios de pagamento\nPerguntas\n"
-  },
-  {
-    "id": 1787783865689,
-    "title": "iPhone 17 256 GB - Azul-névoa - Distribuidor Autorizado",
-    "price": 5399.1,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/2iTgLbb",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_996567-MLA95238305253_102025-O.webp",
-    "desc": "iPhone 17. Mais durável. Mais adorável.\nTela de 6,3 polegadas com ProMotion¹, Ceramic Shield 2, câmeras traseiras de 48 MP, câmera frontal Center Stage, chip A19 e muito mais.\n\n• PROJETADO PARA ENCANTAR. FEITO PARA DURAR\nO iPhone 17 vem em cinco cores lindas, com tela de 6,3 polegadas¹ mais brilhante e parte da frente em Ceramic Shield 2, 3x mais resistente a arranhões².\n\n• TELA DE 6,3 POLEGADAS COM PROMOTION. MUITO MAIS BRILHANTE\nMais leveza ao navegar com ProMotion de até 120 Hz, melhor contraste em ambientes externos com 3.000 nits de pico de brilho e 33% menos reflexos.¹\n\n• FOTOS SURPREENDENTES\nTire fotos em altíssima resolução por padrão com o avançado sistema de câmera dupla Fusion de 48 MP, zoom de 2x com qualidade óptica e câmera Fusion ultra-angular de 48 MP.\n\n• CÂMERA FRONTAL CENTER STAGE DE 18 MP\nFlexibilidade para enquadrar. Selfies em grupo mais inteligentes. Vídeo com Captura Dupla para gravação simultânea das câmeras frontal e traseira. E muito mais.\n\n• CHIP A19. POTÊNCIA DE SOBRA. EFICIÊNCIA NA MEDIDA\nCom GPU de 5 núcleos, o Neural Engine aprimorado dá conta de tudo o que você faz no iPhone, incluindo a Apple Intelligence³ e jogos AAA.\n\n• DEMORA PARA GASTAR. RÁPIDA PARA RECARREGAR\nBateria para o dia todo com até 30 horas de reprodução de vídeo.⁴ E até 50% de recarga em 20 minutos.⁵\n\n• iOS 26. NOVO VISUAL. AINDA MAIS MÁGICO\nNovo design com Liquid Glass. Lindo, cativante e instantaneamente familiar. Com uma Tela Bloqueada mais viva, fundos personalizáveis e recursos como enquetes no Mensagens, Filtragem de Ligações e muito mais.⁶\n\n• FEITO PARA APPLE INTELLIGENCE\nPessoal, privada, poderosa. Escreva, se expresse e faça de tudo sem esforço.³\n\n• RECURSO ESSENCIAL DE SEGURANÇA\nCom a Detecção de Acidente, o iPhone é capaz de identificar um acidente grave de carro e ligar para a emergência se você não puder.⁷\n\n• MAIOR CONECTIVIDADE. VELOCIDADES ALUCINANTES\nTenha velocidades mais altas com conexões seguras Wi‑Fi 7⁸, rede celular 5G⁹, Bluetooth 6 e eSIM.¹⁰\n\n• eSIM. MAIS SEGURO, PRÁTICO E FÁCIL DE USAR\nAproveite maior flexibilidade, mais conveniência, melhor segurança e estabilidade na conexão, especialmente em viagens internacionais.¹⁰ O eSIM também é mais seguro, pois não pode ser removido no caso de perda ou roubo do aparelho.\n\n• PRIVACIDADE\nUm novo nível de privacidade e segurança integradas.\n\nAviso legal\n1. A tela tem bordas arredondadas que se ajustam ao design curvo do aparelho dentro da sua forma retangular. Quando medida como um retângulo, a tela tem 6,27 polegadas (iPhone 17, iPhone 17 Pro), 6,55 polegadas (iPhone Air) ou 6,86 polegadas (iPhone 17 Pro Max) na diagonal. A área real de visualização é menor.\n2. Em comparação com o iPhone da geração anterior.\n3. A Apple Intelligence está disponível em versão beta. Alguns recursos podem não estar disponíveis em todas as regiões ou idiomas. Para ver a disponibilidade de recursos e idiomas, e os requisitos do sistema, acesse support.apple.com/pt-br/121115.\n4. Todas as informações sobre a bateria dependem da configuração da rede e de vários outros fatores. Os resultados reais podem variar. A bateria tem um número limitado de ciclos de recarga e, se necessário, deverá ser substituída. A vida útil e a duração da bateria variam de acordo com o uso e a configuração. Consulte apple.com/br/batteries e apple.com/br/iphone/battery.html para obter mais informações.\n5. Testes conduzidos pela Apple em julho de 2025 usando unidades em pré-produção do iPhone 17, iPhone Air, iPhone 17 Pro e iPhone 17 Pro Max com software em versão preliminar, cabo para recarga com conector USB-C e adaptador dinâmico de 40W da Apple com potência máxima de 60W (modelo A3351) e carregadores MagSafe da Apple (modelo A3502 de 1 metro e modelo A3503 de 2 metros) com adaptador de energia USB-C de 30W da Apple (modelo A2164) ou adaptador dinâmico de 40W da Apple com potência máxima de 60W (modelo A3351). Os testes de recarga rápida foram conduzidos com unidades descarregadas de iPhone. O tempo foi calculado do momento em que o logo da Apple aparece até o aparelho iniciar. O tempo de recarga varia de acordo com a o adaptador, os ajustes, o uso e fatores ambientais. Os resultados reais podem variar.\n6. Alguns recursos podem não estar disponíveis em todos os países ou regiões.\n7. O iPhone 17, o iPhone 17 Pro e o iPhone Air são capazes de identificar um acidente grave de carro e ligar para os serviços de emergência. Requer uma conexão de rede celular ou chamadas Wi-Fi8. Wi-Fi 7 está disponível nos países e regiões em que há compatibilidade.\n8. Wi-Fi 7 está disponível nos países e regiões em que há compatibilidade.\n9. É preciso ter um plano de dados. 5G só está disponível em alguns países e por meio de determinadas operadoras. Para obter detalhes sobre a compatibilidade com 5G, entre em contato com sua operadora e consulte apple.com/br/iphone/cellular.\n10. O eSIM requer um plano de dados (que pode ter restrições a mudanças de operadora e roaming, mesmo após o término do contrato). Nem todas as operadoras dão suporte ao eSIM. O uso do eSIM pode estar desativado quando o iPhone é comprado de algumas operadoras. Consulte sua operadora para obter mais detalhes. Visite apple.com/br/esim para saber mais."
-  },
-  {
-    "id": 1787783555938,
-    "title": "Celular Samsung Galaxy A07 256gb, 8gb, Câmera 50mp, Tela 6.7 , Proteção Ip54, Processador 6nm - Violeta",
-    "price": 837.25,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/1td2RXG",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_765861-MLA95532186080_102025-O.webp",
-    "desc": "Celular Samsung Galaxy A07, 256GB, 8GB de RAM + 8GB RAM Plus, Câmera Traseira dupla de até 50MP, Câmera Frontal de 8MP, Tela de 6.7\", Processador Poderoso Octa-Core (6nm), Android 15 com 6 atualizações, Certificado IP54 (resistência à água e poeira), Bateria de 5000mAh,, Dual Chip.\n\n\nO Galaxy A07 chega para redefinir o que você espera de um smartphone feito para durar, entregando o melhor processador da categoria, câmera dupla de até 50MP, até 6 atualizações de Android e até seis anos de atualizações de segurança, proteção IP54 contra água e poeira, design fino e recursos que acompanham seu ritmo.\n\nCom o processador Mediatek Helio G99 de 6nm e a memória RAM de 8GB + 8GB de RAM Plus (RAM virtual), você roda os seus apps, jogos, vídeos sem travar. O processador tem performance 84% superior a versão anterior (G85). Ainda conta com 256GB de armazenamento para seus vídeos, fotos e apps.\n\nSua câmera dupla de até 50MP é capaz de fazer fotos em alta resolução trabalha em conjunto com uma câmera de profundidade permitindo efeitos incríveis para suas fotos. E com a câmera frontal de 8MP você tira selfies perfeitas.\n\nFeito para durar e atualizado por mais tempo, o Galaxy A07 oferece até 6 atualizações de sistema operacional Android e até 6 anos de atualizações de segurança. \n\nAlém disso, conta com proteção IP54, garantindo resistência à água e poeira.\n\nSua tela ampla de 6,7\", HD+, com vidro temperado reforçado e taxa de atualização de 90 Hz, garante resistência e cores vivas e vibrantes, além de ter uma imersão total em filmes, séries e redes sociais.\n\nO seu acabamento sofisticado e fino, com espessura de 7,6mm e apenas 184g traz conforto e ergonomia.\n\nEquipado com sua bateria de longa duração de 5000 mAh, o Galaxy A07 te acompanha em todos os cantos e permite que você esteja sempre conectado.\n\nCom o aplicativo SmartSwitch você transfere de forma fácil e prática o conteúdo do seu celular anterior (fotos, contatos, eventos do calendário, notas, configurações do dispositivo e muito mais).\n\nSua segurança é aprimorada através do Samsung Knox Vault, garantindo que dados confidenciais e sigilosos, como senhas e pins de desbloqueio, permaneçam seguros."
-  },
-  {
-    "id": 1787783259586,
-    "title": "Relógio Orient Masculino SolarTech MBSS1492 P2SX com Pulseira de Aço Prateado e Fundo Preto",
-    "price": 329.36,
-    "oldPrice": null,
-    "category": "acessorios",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/22XJ6PX",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_895706-MLA109887733807_032026-O.webp",
-    "desc": "RELÓGIO ORIENT SOLARTECH - MODELO MBSS1492 P2SX\n\nA nova linha de Relógios Orient agora conta com bateria solar, recarregável em luz artificial ou natural.\n\nCARACTERÍSTICAS:\n- Caixa redonda em aço inoxidável na cor prata\n- Mostrador na cor preto\n- Ponteiros e marcadores luminescentes\n- Pulseira em aço\n- Fecho de pressão\n- Vidro em cristal mineral\n- Resistência a água 10 atm ou 100 metros\n- Fundo Rosqueado\n- Coroa simples (não rosqueada) em 2 estágios\n- Bateria solar recarregável em luz natural e artificial\n- Calendário com dia do mês\n- Manual em português\n- Medidas da caixa:\n=> 40 mm de largura sem a coroa\n=> 41 mm de largura com a coroa\n=> 45 mm de altura\n=> 11 mm de espessura\n- Peso: 102 gramas"
-  },
-  {
-    "id": 1787782796299,
-    "title": "Geladeira Electrolux Frost Free 320L Duplex Inox Look (TF38S)",
-    "price": 2499,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/2TubWXv",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_648570-MLA99962182477_112025-O.webp",
-    "desc": "A Geladeira Electrolux Frost Free 320L Duplex Inox Look (TF38S) tem a exclusiva Gaveta HortiFruti: organizar e visualizar suas frutas e legumes nunca foi tão fácil. Esse espaço dedicado previne o desperdício e mantém seus alimentos frescos por mais tempo.\n\nO design é robusto e garante que esse refrigerador seja não apenas durável, mas também prático, adaptando-se perfeitamente à sua rotina e às suas necessidades de armazenamento. E, para aqueles momentos em que você precisa de resfriamento rápido, o Turbo Freezer é a solução ideal, perfeita para festas ou para quando você chega em casa com as compras e precisa refrigerar algo rapidamente.\n\nA conveniência continua com a Bandeja de Ovos, que oferece espaço organizado para até 12 ovos, enquanto a Forma de Gelo mantém suas bebidas sempre geladas com capacidade para até 30 cubos de gelo. A iluminação de LED interna não só proporciona uma visão clara do interior da geladeira, como também economiza energia.\nPara completar, você pode melhorar ainda mais sua experiência com a Geladeira Electrolux Duplex (TF38S) utilizando acessórios exclusivos¹ que facilitam o seu dia a dia.\n\nPrecisando de mais gelo? O IceStock é um recipiente extra para armazenar cubos de gelo, ideal para celebrações. Já a inovadora linha de Vacuum Food Pres preserva os nutrientes e prolonga a vida útil dos seus alimentos em até 5 vezes², promovendo mais saúde e ajudando a reduzir o desperdício, um benefício para você e para o meio ambiente.\n"
-  },
-  {
-    "id": 1787782434604,
-    "title": "Bomba Para Galão De Água 5 10l 20l Recarregável Usb Garrafão",
-    "price": 27.81,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/1qyZERn",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_811276-MLB95523819909_102025-O-bomba-para-galao-de-agua-5-10l-20l-recarregavel-usb-garrafao.webp",
-    "desc": "Bomba Elétrica para Galão de Água Recarregável | Dispenser Automático 600ml | Bomba Universal 5L 10L 15L 20L | Portátil Silenciosa Micro USB\nBomba para Garrafão 20L com Bateria Recarregável | Dosador Automático | Ideal Casa Escritório Comércio | Prática Econômica"
-  },
-  {
-    "id": 1787782115577,
-    "title": "Xiaomi Redmi Note 14 5g 256 Gb Dual Sim 8 Gb Cor Preto",
-    "price": 1548.5,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/2sQEqjr",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_965101-MLA99852789291_112025-O.webp",
-    "desc": "Acompanha na caixa do REDMI NOTE 14 5G\nVem o smartphone\nManuais\nCase TPU\nChave de chip SIM\nCabo USB\nCarregador rápido\nCom Android 14 HyperOS\n\nVISÃO GERAL\n•Especificações\n•Marca: Xiaomi\n•Nome: Redmi Note 14 5G\n•Lançamento: jan/25\n•Dimensões: (A x L x E) 162,4 x 75,7 x 7,99 mm\n•Peso: 190 g\n•Material (Estrutura):Plástico\n•Material (Traseira): Plástico\n•Resistência à água/poeira: IP64\n\n•Software\n•Sistema (lançamento): Android 14, HyperOS\n\n•Processador:\n•System on a Chip Mediatek Dimensity 7025 Ultra (litografia de 6 nm)\n•CPU: 8 núcleos (2x 2,5 GHz Cortex-A78 & 6x 2,0 GHz Cortex-A55)\n•GPU: Imagination IMG BXM-8-256\n•Memória RAM: 8 GB\n•Armazenamento interno: 256 GB\n•Entrada para cartão microSD Até: 1 TB\n\nTELA\n•Tipo: AMOLED\n•Tamanho: 6,67 polegadas\n•Proporção: 20:9\n•Resolução: 1080x2400 pixels\n•Densidade de pixels: 395 ppi\n•Taxa de atualização: 120 Hz\n•Modo Alto Brilho (HBM): 1200 nits\n•Brilho (Pico): 2100 nits\n•Proteção: Corning Gorilla Glass 5\n•Recursos\n•Tela Sempre Ativa\nHDR10\nHDR10+\n•Modo luz solar\n\n•Câmera traseira\n•Câmera Principal: 108 MP (Grande-angular)\nEspecificações:\nTamanho do Sensor: 1/1,67\nAbertura da lente: f/ 1.7\n•Segunda Câmera: 8 MP (Ultrawide)\nEspecificações:\nAbertura da lente: f/ 2.2\n•Terceira Câmera: 2 MP (Grande-angular)\nEspecificações\nAbertura da lente: f/ 2.4\n•Flash: Led\n•Vídeo: Full HD (1080p) 30 fps\nEstabilização:\n•Estabilização Óptica de Imagem (OIS)\nVEstabilização Digital de Imagem (EIS)\nRecursos:\n•Dolby Vision HDR\n•Foco Automático (PDAF)\n•Modo Retrato\n\n•Câmera frontal\n•Câmera Principal:20 MP (Grande-angular)\nEspecificações:\nTamanho do Sensor: 1/4\nAbertura da lente: f/ 2.2\nVídeo Full HD (1080p) 30 fps\n\n•Bateria\n•Capacidade: 5110 mAh\n•Tipo: Li-Po\n•Carregamento com fio 45 W\n•Carregamento rápido\n\n•Conectividade e Conexões\n•SIM: Nano-SIM\n•Dual-SIM\n•Redes móveis\n3G\n4G\n5G\n•Wi-Fi:5 (802.11 a/b/g/n/ac)\nFrequências de Wi-Fi\n2,4 GHz\n5 GHz\n•Recursos de Wi-Fi\nWi-Fi Direct\nHotspot\n•Bluetooth: 5.3\nRecursos de Bluetooth\nA2DP\nLE\n•Conector :USB-C\n•Tecnologias de conexão: OT;G\n•Entrada P2 (Fone de ouvido)\n•InfraVermelho (IR)\n•Geolocalização:\nGLONASS\nGALILEO\nBDS\nGPS\n•Rádio FM"
-  },
-  {
-    "id": 1787781818189,
-    "title": "Fritadeira Air Fryer Portátil 4l 24v Caminhão Climatizar",
-    "price": 639.57,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/2YHzuzQ",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_608778-MLB85294447806_062025-O-fritadeira-air-fryer-portatil-4l-24v-caminhao-climatizar.webp",
-    "desc": "Bem-vindo á Rubinho Auto Peças, aqui temos a solução para seu caminhão! Estamos a mais de 30 anos no mercado, com uma variedade de peças e acessórios em alta qualidade para seu caminhão.\nOlá, amigo caminhoneiro e parceiro de estrada! Sabemos que a estrada pode ser longa e a saudade da comida caseira, ainda maior. Que tal levar o conforto e a praticidade da sua cozinha para dentro do seu caminhão?\nApresentamos a Fritadeira Elétrica Air Fryer 4 Litros 24V 250W com Controle de Temperatura e Timer - Climatizar! A revolução da alimentação saudável e prática para quem vive na estrada.\nCansado de comer fast-food ou depender de opções caras e nem sempre saudáveis na beira da estrada? Com a Air Fryer Climatizar, seus problemas acabaram! Prepare refeições deliciosas e saudáveis, sem óleo, diretamente no seu caminhão. Com 4 litros de capacidade, 24V de voltagem (perfeita para o seu veículo), controle de temperatura e timer, você tem total autonomia para cozinhar o que quiser, quando quiser. Diga adeus à comida fria e sem sabor! Adquira agora e transforme suas paradas em verdadeiras experiências gastronômicas!"
-  },
-  {
-    "id": 1787781416904,
-    "title": "Console Playstation 5 Slim Edição Digital 825 Gb",
-    "price": 4349,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/1dZbtKb",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_971864-MLA91925160023_092025-O.webp",
-    "desc": "AVISO IMPORTANTE: a partir de janeiro de 2028, os novos jogos lançados para o PlayStation serão disponibilizados para compra na PlayStation Store e nas lojas apenas em formato digital. Os discos de jogos lançados antes de janeiro de 2028 poderão continuar a ser jogados neste dispositivo.\n\n\n\nA Console Playstation 5 Slim Edição Digital 825 GB é a escolha perfeita para os amantes de jogos que buscam uma experiência imersiva e de alta performance. Com um design elegante na cor branca, esta console de mesa combina potência e estilo, ideal para qualquer ambiente.\n\nEquipado com 825 GB de capacidade, você terá espaço suficiente para armazenar seus jogos digitais favoritos. A PS5 Slim suporta uma resolução máxima de 3840 x 2160 px e até 120 FPS, garantindo gráficos impressionantes e jogabilidade fluida. Além disso, a conectividade Wi-Fi e Bluetooth 5.0 permite que você se conecte facilmente a outros dispositivos.\n\nInclui um controle sem fio, proporcionando liberdade de movimento enquanto joga. Com quatro portas USB, você pode conectar diversos acessórios e dispositivos. A compatibilidade com aplicativos como Netflix e YouTube transforma sua console em um centro de entretenimento completo.\n\nA PS5 Slim é ideal para quem busca não apenas jogar, mas também desfrutar de uma variedade de conteúdos multimídia. Com um peso de 4.1 kg e dimensões compactas, é fácil de acomodar em qualquer espaço. Experimente a nova geração de jogos com a Console Playstation 5 Slim Edição Digital 825 GB e leve sua diversão a um novo patamar.\n\nAviso legal\n• A duração da bateria depende do uso que se dê ao produto."
-  },
-  {
-    "id": 1787781117380,
-    "title": "Xiaomi Redmi 15 Global 256gb/8gb Ram Preto",
-    "price": 1150,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/1ghLPNy",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_820978-MLA98741556457_112025-O.webp",
-    "desc": "Desfrute de cores vibrantes e maior nitidez em todo o seu conteúdo com a tela IPS de 6,9\".\n\nCapacidade e eficiência\nCom seu processador potente e 8 GB de RAM, seu dispositivo alcançará alto desempenho com streaming de conteúdo rápido e executará vários aplicativos simultaneamente sem atrasos.\n\nDesbloqueio facial e por impressão digital\nSegurança máxima para que somente você possa acessar seu dispositivo. Escolha entre o sensor de impressão digital para desbloquear seu telefone com um único toque ou o reconhecimento facial para um desbloqueio até 30% mais rápido.\n\nGrande capacidade de armazenamento\nEsqueça a exclusão. Com 256 GB de armazenamento interno, você pode baixar todos os arquivos e aplicativos de que precisa, salvar fotos e armazenar seus filmes, séries e vídeos favoritos para assistir quando quiser."
-  },
-  {
-    "id": 1787780783709,
-    "title": "Tênis Nike Court Royale 2 Next Nature Masculino",
-    "price": 351.49,
-    "oldPrice": null,
-    "category": "calcados",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/24H5jDr",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_651459-MLB100678053636_122025-O-tnis-nike-court-royale-2-next-nature-masculino.webp",
-    "desc": "UM ÍCONE RETRÔ DO TÊNIS.\n\nO brilho do passado encontra os tempos modernos. O novo Nike Court Royale 2 Next Nature é feito com pelo menos 20% de materiais reciclados por peso. Substituímos o couro de alto impacto por couro sintético para um look moderno, suave e versátil. O grande Swoosh retrô adiciona um apelo vintage.\n"
-  },
-  {
-    "id": 1787780396522,
-    "title": "Xiaomi Poco C75 Dual Sim 256 Gb 8 Gb Ram Preto",
-    "price": 1349,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/16yuWwx",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_626626-MLA99934080523_112025-O.webp",
-    "desc": "O POCO C75 é um smartphone 4G , destacando-se pela tela grande de 6,88 polegadas (HD+ a 120Hz), câmera principal de 50 MP e bateria de 5.160 mAh. Equipado com o processador MediaTek Helio G81-Ultra, oferece versões com 6GB/8GB de RAM e 128GB/256GB de armazenamento.\n\nPrincipais Especificações Técnicas (POCO C75):\nProcessador: MediaTek Helio G81-Ultra (octa-core até 2.0 GHz).\nTela: 6,88 polegadas IPS LCD, resolução HD+ , taxa de atualização de 120 Hz, brilho de até 600 nits.\nRAM: 6 GB ou 8 GB LPDDR4X (com suporte a extensão de memória virtual).\nArmazenamento: 128 GB ou 256 GB eMMC 5.1 (expansível via microSD).\nCâmera Traseira: Principal de 50 MP + Lente auxiliar (0.08 MP).\nCâmera Frontal: 13 MP.\nBateria: 5.160 mAh com carregamento rápido de 18 W.\nConectividade: 4G, Wi-Fi 5, Bluetooth 5.4, NFC (dependendo da região), USB-C, entrada P2 (3.5mm) para fones.\nSistema: Android 14 com a interface HyperOS.\nSegurança: Sensor de digitais na lateral e reconhecimento facial.\nPeso e Dimensões: 204 gramas;"
-  },
-  {
-    "id": 1787779710368,
-    "title": "Smartphone Motorola Moto G86 5g - 256gb 8gb Ram+16gb Ram Boost Tela 1.5k Poled, 50mp Sony Camera Ois Moto Ai, Videos Em 4k, Ip68 + Ip69 - Vermelho",
-    "price": 1599,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/2jbfKjE",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_814913-MLA99969880153_112025-O.webp",
-    "desc": "O Smartphone Motorola Moto g86 5G é a combinação perfeita de desempenho, inovação e estilo. Com uma impressionante capacidade de 256 GB de armazenamento interno e 24 GB de RAM (8 GB RAM + 16 GB Ram Boost), você terá espaço e velocidade suficientes para todas as suas necessidades, desde jogos até a captura de vídeos em 4K.\n\nSua tela 1.5K pOLED de 6,7 polegadas com taxa de atualização de 120 Hz garante uma experiência visual imersiva e suave, ideal para gamers e para quem consome conteúdo multimídia. A versatilidade da câmera principal de 50 MP, projetada com tecnologia Sony e OIS, permite que você capture imagens nítidas e vibrantes, enquanto a câmera frontal de 32 MP é perfeita para selfies impressionantes.\n\nA robustez do Moto g86 é evidenciada pela sua classificação IP68 e IP69, tornando-o resistente à água e poeira, ideal para quem leva um estilo de vida ativo. Com um poderoso processador Dimensity 7300 que opera a 2,5 GHz e uma bateria de longa duração de 5200 mAh, você terá um desempenho excepcional durante todo o dia, sem se preocupar com recargas constantes.\n\nEquipado com reconhecimento facial e leitor de impressão digital, o Motorola Moto g86 não só é inteligente, como também prioriza a segurança do usuário. Com conectividade 5G e uma gama completa de funcionalidades como NFC, Bluetooth e GPS, este smartphone está pronto para atender a todas as suas demandas tecnológicas de forma ágil e eficiente."
-  },
-  {
-    "id": 1787779290437,
-    "title": "Purificador De Água Fr600 Speciale Branco Ibbl",
-    "price": 734.16,
-    "oldPrice": null,
-    "category": "wearables",
-    "tag": "OFERTA",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "affiliateLink": "https://meli.la/1GxA116",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_675613-MLA99969949771_112025-O.webp",
-    "desc": "PURIFICADOR DE ÁGUA FR600 SPECIALE BRANCO IBBL\n\nÁgua purificada e gelada com filtragem de alta eficiência. O sistema “Girou Trocou” permite a substituição do refil frontal de forma prática. Oferece água nas temperaturas natural, gelada e misturada.\n\nO modelo conta com refrigeração por compressor, garantindo baixo consumo de energia e alta capacidade de atendimento. Design robusto e funcional.\n\nDIMENSÕES E PESO:\nAltura: 41 cm\nLargura: 31,2 cm\nProfundidade: 35,7 cm\nPeso: 10,6 kg"
-  },
-  {
-    "id": 1,
-    "title": "Tênis Nike Court Vision Low Next Nature",
-    "category": "calcados",
-    "tag": "FRETE GRÁTIS",
-    "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-    "price": 409.99,
-    "oldPrice": 399.9,
-    "desc": "Design clássico do basquete dos anos 80 combinado com o conforto ideal para o dia a dia.",
-    "image": "https://http2.mlstatic.com/D_Q_NP_759199-MLB99753360926_122025-F-tnis-nike-court-vision-low-next-nature-feminino-_JM",
-    "affiliateLink": "https://meli.la/2a7JZSU"
-  }
-];
-    let isAdminVisible = false;
-  
-  // Mantém seus produtos salvos no navegador normalmente
-  let savedProducts = JSON.parse(localStorage.getItem('mazolastore_products'));
-  let products = savedProducts && savedProducts.length > 0 ? savedProducts : defaultProducts;
+    const defaultProducts = [
+      {
+        "id": 1788451764591,
+        "title": "Celular Samsung Galaxy A17 Com Ia, 128gb, 4gb Ram, Câm De 50mp, Tela De 6.7 , Nfc, Ip54 - Preto",
+        "price": 799.89,
+        "oldPrice": null,
+        "category": "wearables",
+        "tag": "OFERTA",
+        "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+        "affiliateLink": "https://meli.la/2G8WUbq",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_2X_807017-MLA91535682558_092025-F.webp",
+        "desc": "Celular Samsung Galaxy A17, com IA integrada, 128GB, 4GB RAM, 4GB RAM Plus, Câmera Tripla Traseira de até 50MP, Câmera Frontal de 13 MP,Tela resistente Super AMOLED de 6.7\", Processador Helio G99 Octa-Core de 6nm, Android 15 com 6 atualizações, IP54 resistencia à água e poeira, NFC, Samsung Wallet, Bateria de 5.000mAh, Dual Chip.\n\n\nO Galaxy A17 chegou para transformar a maneira como você se conecta, tendo tudo para ser seu primeiro Galaxy com IA. Com ele, você vai registrar cada momento com uma câmera tripla de até 50MP. Sua telona de 6,7\" de Super AMOLED tem mais resistência. Feito para durar, modelo traz design moderno, acabamento premium, até 6 atualizações de Android e até seis anos de atualizações de segurança, proteção IP54 contra água e poeira, unindo estilo, funcionalidade e resistência em um só aparelho.\n\nComo novidade o novo Galaxy A17 possui Gemini integrado e o Circule para Pesquisar, ferramentas de IA do Google. O Gemini integrado enriquece seu dia a dia com um assistente de IA que é fácil de usar, que entende o que você diz de maneira natural. Com um simples toque no botão lateral você acessa o Gemini rapidamente. Com a ação integrada entra aplicativos, o Gemini integra não somente aplicativos Google, mas também aos aplicativos nativos do Galaxy e de terceiros para oferecer assistência inteligente em toda a experiência do seu dispositivo. Usando o Circule para Pesquisar, você pode intuitivamente pesquisar qualquer coisa na tela, como imagens, músicas ou texto. Encontre respostas e ações necessárias rapidamente. Na pesquisa de imagens, basta circular um item ou objeto para visualizar informações adicionais sobre ele. Quer saber mais sobre uma música? Toque, cante ou cantarole para encontrar mais informações sobre ela. E com os pins de ação faça chamadas, envie e-mails ou visite um site com apenas um toque na tela.\n\nA câmera tripla de 50MP com estabilização óptica (OIS) permite que você capture cada detalhe de diferentes ângulos para fotos e vídeos criativos mesmo em movimento. Leve suas memórias para o próximo nível.\n\nA telona Super AMOLED de 6,7” FHD+ te entrega cores mais vivas, contraste profundo e brilho otimizado para qualquer ambiente, seja assistindo filmes, jogando ou navegando nas redes sociais. Fique despreocupado, o Gorilla Glass Victus te entrega durabilidade superior contra riscos e quedas.\n\nFeito para durar e atualizado por mais tempo, o Galaxy A17 oferece uma experiência duradoura e segura, assegurando até 6 atualizações de sistema operacional Android e até 6 anos de atualizações de segurança. Além disso, conta com proteção IP54, garantindo resistência à água e poeira. Sua segurança é aprimorada através do Samsung Knox Vault, garantindo que dados confidenciais e sigilosos, como senhas e pins de desbloqueio, permaneceram seguros.\n\nO seu acabamento sofisticado e fino, com espessura de 7,5mm e apenas 190g traz conforto e ergonomia.\n\nCom o aplicativo SmartSwitch você transfere de forma fácil e prática o conteúdo do seu celular anterior (fotos, contatos, eventos do calendário, notas, configurações do dispositivo e muito mais).\n\nO Galaxy A17 é mais do que um smartphone é seu novo parceiro para trabalhar, se divertir e se conectar, combinando tecnologia de ponta com a confiabilidade da Samsung."
+      },
+      {
+        "id": 1788451465393,
+        "title": "Fone De Ouvido Headphone Dapon H02D Bluetooth 5.1 Over-ear 22h Preto",
+        "price": 74,
+        "oldPrice": null,
+        "category": "audio",
+        "tag": "OFERTA",
+        "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+        "affiliateLink": "https://meli.la/1YJc2bW",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_2X_673950-MLA99394598783_112025-F.webp",
+        "desc": "Fone De Ouvido Bluetooth Dapon H02D\n\nDescubra o Fone De Ouvido Bluetooth Dapon H02D, uma combinação perfeita de tecnologia e conforto para todos os amantes de música. Com um design inovador, ele permite a alternância entre o modo sem fio e com fio através de um conector de 3,5 mm, oferecendo versatilidade para diferentes situações.\n\nConforto e Ajuste\nO Dapon H02D conta com um design dobrável, que se adapta facilmente a diferentes formatos de cabeça. Sua estrutura compacta permite que você o dobre no tamanho de uma palma, facilitando o transporte. As almofadas macias e o protetor auricular acolchoado proporcionam um conforto excepcional, permitindo longas horas de uso sem desconforto.\n\nQualidade de Som Superior\nDesenvolvido com a colaboração de profissionais e amantes de música, o H02D oferece um som sintonizado que garante uma experiência auditiva de alta qualidade. A equipe Dapon trabalhou arduamente para melhorar a performance sonora, resultando em graves profundos e um áudio claro.\n\nLonga Duração da Bateria\nCom uma bateria de alta capacidade de 350mAh, você pode desfrutar de até 22 horas de música contínua após apenas 2 horas de carga. Além disso, o tempo de espera chega a impressionantes 60 horas, garantindo que você não precise se preocupar com recargas frequentes.\n\nControle Prático\nO fone de ouvido Dapon H02D torna o controle de suas músicas e chamadas uma tarefa simples. Com apenas 3 toques, você pode gerenciar suas faixas e atender chamadas com seu microfone integrado. Os botões de volume e atendimento de chamadas são facilmente acessíveis, tudo ao seu alcance.\n\nEspecificações Técnicas:\n- Bluetooth 5.1: Conexão estável e sem interferências em até 10 metros\n- Bateria de 350mAh: Até 22 horas de música ou chamadas com 2–3 horas de carga\n- Interface Tipo-C: Carregamento rápido e moderno\n- Modo com fio (P2 3,5 mm): Permite uso mesmo sem bateria\n- Microfone integrado: Ideal para chamadas e reuniões online\n- Design dobrável e ajustável: Fácil de transportar e confortável no uso\n- Almofadas acolchoadas: Conforto prolongado sem desconforto\n- Botões no fone: Controle de volume, faixas e chamadas\n- Indicador LED: Exibe status de carga e conexão\n- Resposta de frequência: 20 Hz – 20.000 Hz\n- Tempo de espera: Até 60 horas\n- Distância de transmissão: Até 10 metros\n\nConteúdo da Embalagem:\n- 1x Fone de Ouvido Sem Fio Dapon H02D\n- 1x Cabo USB Tipo-C (30 cm)\n- 1x Cabo P2 para P2 (1,2 m)\n\nDimensões da embalagem:\n- Altura: 21 cm\n- Largura: 19,8 cm\n- Comprimento: 8,7 cm\n- Peso: 330 gramas\n\nNão perca a oportunidade de elevar sua experiência musical ao próximo nível com o Fone De Ouvido Bluetooth Dapon H02D!"
+      },
+      {
+        "id": 1788185788112,
+        "title": "Parafusadeira sem fio Makita Professional DF001DW azul-turquesa 60 Hz",
+        "price": 370.4,
+        "oldPrice": null,
+        "category": "wearables",
+        "tag": "OFERTA",
+        "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+        "affiliateLink": "https://meli.la/31oRDYZ",
+        "image": "https://http2.mlstatic.com/D_Q_NP_808400-MLA99979722403_112025-F.webp",
+        "desc": "Parafusadeira Dobrável DF001DW a Bateria 3.6V + Kit 81 Peças – Makita\n\nParafusadeira Dobrável modelo DF001DW da Makita conta com um estojo com 81 peças para complementar sua oficina, foi desenvolvida para a colocação de parafusos. Equipamento pode ser usado reto como bastão e em ângulos como pistola. Compacta e prática de usar, possui rotação reversível e iluminação.\n\nAplicação:\n- Utilizada para apertar parafusos em juntas de diversos materiais\n\nCaracterísticas/Vantagens:\n- Compacta e prática.\n- Pode ser usada no modo reto ou pistola.\n- Rotação reversível.\n- Iluminação de trabalho.\n- Acompanha estojo com 81 acessórios.\n- Recarregável na tomada 110/220V, no computador ou veículo, via cabo USB.\n\nDetalhes Técnicos:\n- Rotações por minuto: 220\n- Torque: 6 N.m\n- Dimensões(C x L x A): 287 x 47 x 51mm\n- Peso: 0.36kg\n- Bateria: 3.6V\n\nConteúdo da Embalagem:\n- Parafusadeira Dobrável DF001DW Bateria 3.6V\n- Adaptador AC BIVOLT, cabo USB e maleta com 81 acessórios.\n\nComposição dos acessórios:\n- 8 Bits Fenda: (2) 0.6 x 4.5 mm, (2) 0.8 x 5.5 mm, (2) 1.0 x 5.5 mm, (2) 1.2 x 6.5 mm\n- 12 Bits Pozidriv: (3) PZ0, (3) PZ1, (3) PZ2 e (3)PZ3\n- 12 Bits Allen: (2) H2, (2) 2.5, (2) H3, (2) H4, (2) H5, (2) H6\n- 5 Bits Tork: (3) T10, (2) T15\n- 10 Bits Phillips: (3) PH0, (3) PH1, (3) PH2 e PH3\n- 3 Bits Tork 50mm: T20, T25 e T30\n- 3 Bits Phillips 50mm: PH1, PH2 e PH3\n- 6 Bits Canhão: 5, 6, 7, 8, 9 e 10 mm\n\n* Imagens meramente ilustrativas.\n* Todas as informações divulgadas são de responsabilidade do Fabricante/Fornecedor."
+      },
+      {
+        "id": 1787787815018,
+        "title": "Tênis Esportivo Masculino Delta Olympikus",
+        "price": 116.99,
+        "oldPrice": null,
+        "category": "calcados",
+        "tag": "OFERTA",
+        "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+        "affiliateLink": "https://meli.la/1Q1cQza",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_2X_666196-MLA99506601170_112025-F.webp",
+        "desc": "ESTILO E CONFORTO PARA O SEU DIA A DIA!\nO Tênis Esportivo Masculino Delta da Olympikus é ideal para quem busca conforto e maior performance nas suas corridas. Além de ser extremamente leve, ele é confortável e feito para que você se sinta bem durante todo o dia!\nConfeccionado com o cabedal têxtil de ótima qualidade, oferece bem-estar aos pés. O solado tem a tecnologia de amortecimento Evasense, que proporciona mais leveza, maciez e flexibilidade nas passadas. Com ajuste por cadarços, garante um calce firme e seguro. Não deixe para depois, aproveite o tênis masculino Delta da Olympikus e descubra o verdadeiro significado de conforto e estilo em suas atividades físicas.\n----------------------------------------------------------------------\nSOBRE A MARCA:\nA Olympikus é a maior marca esportiva do Brasil e, desde 1975, vem construindo uma longa relação com o esporte brasileiro, por ações sólidas e duradouras. A marca acredita e investe no esporte, buscando inovação e alta operação, por meio do seu Centro de Desenvolvimento e Tecnologia. Hoje está presente em toda a América do Sul e em mais de 12 mil pontos de venda no Brasil."
+      },
+      {
+        "id": 1787787534885,
+        "title": "Abridor De Latas Elétrico Branco",
+        "price": 51.39,
+        "oldPrice": null,
+        "category": "wearables",
+        "tag": "NOVIDADE",
+        "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+        "affiliateLink": "https://meli.la/2RGYK62",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_2X_872942-CBT115251846716_082026-F.webp",
+        "desc": "Abridor de lata elétrico, compacto, bateria operada (necessita de 2 baterias AA, não incluído), 36V Tensão de operação, Material ABS"
+      },
+      {
+        "id": 1787787147407,
+        "title": "Espremedor Alho Inox Manual Triturador Amassador Cozinha Aço Inoxidável Abs Ergonômico Prensa Alho Pimenta Gengibre Fácil Limpeza Compacto",
+        "price": 10.34,
+        "oldPrice": null,
+        "category": "wearables",
+        "tag": "OFERTA",
+        "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+        "affiliateLink": "https://meli.la/2i5rn28",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_2X_728600-MLA114154544902_082026-F.webp",
+        "desc": "O espremedor amassador triturador de alho inox manual foi desenvolvido para facilitar o preparo de alimentos na cozinha. Indicado para triturar alho, pimenta, gengibre e outros ingredientes pequenos com praticidade no dia a dia.\n\nPossui lâmina em aço inoxidável resistente à corrosão, permitindo maior durabilidade e facilidade na limpeza após o uso. O cabo em plástico ABS apresenta formato ergonômico que auxilia na pegada durante o manuseio.\n\nO funcionamento é realizado por pressão manual com movimento de balanço, permitindo triturar o alimento sem contato direto com as mãos. O tamanho dos furos foi projetado para obter consistência adequada no preparo.\n\nCom dimensões aproximadas de 11 cm x 5,2 cm x 7 cm e peso leve, pode ser armazenado facilmente em gavetas ou utensílios de cozinha. Pode ser lavado com água corrente ou em máquina de lavar louça.\n\nConteúdo da embalagem: 1 espremedor triturador de alho manual em aço inox.\n\nFAQ\n\nQual o material do produto?\nAço inox na lâmina e plástico ABS no cabo.\n\nServe apenas para alho?\nNão, pode triturar pimenta, gengibre e outros alimentos.\n\nPode lavar na máquina?\nSim, é compatível com lava-louças.\n\nQual o tamanho?\nAproximadamente 11x5,2x7 cm.\n\nEnferruja com o tempo?\nNão, o inox é resistente à corrosão."
+      },
+      {
+        "id": 1787786871494,
+        "title": "Câmera de Segurança IP Wi-Fi Lâmpada E27 HW 360° Full HD com Visão Noturna e Áudio - HW",
+        "price": 51.33,
+        "oldPrice": null,
+        "category": "wearables",
+        "tag": "OFERTA",
+        "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+        "affiliateLink": "https://meli.la/294GY4J",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_2X_618454-MLA113146753504_072026-F.webp",
+        "desc": "Este produto possui marca registrada no INPI, protegida pelas leis de Propriedade Intelectual, assim como suas fotos, que são registradas como obras protegidas por direitos autorais, além de contar com registro de desenho industrial. A venda, reprodução ou utilização não autorizada deste produto, de suas imagens ou design, constitui infração, sujeita a penalidades legais. A violação desses direitos pode ser denunciada e levar a ações legais.\"\n\nProdutos da embalagem\n\n1 Câmeras Wi-Fi modelo lâmpada (E27)\n1 bocal/soquetes E27\nKit de fixação (buchas e parafusos)\nManual de instruções para configuração\n\nA câmera de segurança Wi-Fi modelo lâmpada foi feita para quem busca praticidade, segurança e controle total do ambiente no dia a dia. Com instalação simples no padrão E27, ela pode ser utilizada em qualquer bocal, igual uma lâmpada comum, permitindo uso rápido e sem necessidade de técnico. Compacta, funcional e fácil de usar, é ideal para quem quer praticidade no monitoramento. Seu design em formato de lâmpada ajuda a tornar a gravação menos perceptível, garantindo mais segurança e proteção para sua residência de forma eficiente e discreta."
+      },
+      {
+        "id": 1787786551117,
+        "title": "Patinete Elétrico Foston Scooter S09 Pro 2024 Cor Preto",
+        "price": 2230.9,
+        "oldPrice": null,
+        "category": "wearables",
+        "tag": "OFERTA",
+        "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+        "affiliateLink": "https://meli.la/2swLhGs",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_2X_872730-MLA95500784090_102025-F.webp",
+        "desc": "O Patinete Elétrico Foston Scooter S09 Pro 2024 é a escolha ideal para quem busca mobilidade e praticidade no dia a dia. Com uma potente bateria de íon de lítio de 10400 mAh, você pode percorrer até 35 km com uma única carga, tornando seus deslocamentos mais eficientes. Seu motor de 350 W permite atingir uma velocidade máxima de 25 km/h, ideal para se locomover rapidamente pela cidade.\n\nO design dobrável facilita o armazenamento e o transporte, enquanto o sistema de freios a disco ventilado traseiro garante segurança em todas as suas viagens. Equipado com luzes LED e conectividade Bluetooth, o S09 Pro combina tecnologia e conforto, proporcionando uma experiência de condução moderna e segura.\n\nRecomendado para maiores de 14 anos e com capacidade para suportar até 120 kg, este patinete é perfeito para adolescentes e adultos que desejam uma alternativa prática e sustentável para o transporte urbano. Aproveite a liberdade de se deslocar com estilo e eficiência com o Foston Scooter S09 Pro 2024.\n\nAviso legal\n• Idade mínima recomendada: 10 anos."
+      },
+      {
+        "id": 1787786225835,
+        "title": "Celular Motorola Moto G06 128gb 4gb Ram Orange",
+        "price": 699,
+        "oldPrice": null,
+        "category": "wearables",
+        "tag": "OFERTA",
+        "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+        "affiliateLink": "https://meli.la/1FMX4Z1",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_2X_651353-MLA115768418107_082026-F.webp",
+        "desc": "O Motorola Moto G06 é um smartphone projetado para quem procura um equilíbrio perfeito entre desempenho e estilo. Com uma memória interna de 128 GB, você terá espaço suficiente para armazenar seus aplicativos, fotos e vídeos sem preocupações. Sua elegante cor laranja não só se destaca, mas também se adapta a qualquer ocasião.\n\nEquipado com 4 GB de RAM, este dispositivo garante uma operação suave, permitindo que você realize várias tarefas sem interrupção. A linha Moto G da Motorola é conhecida por sua durabilidade e eficiência, tornando-a a escolha ideal para o uso diário.\n\nO Moto G06 tem um slot para cartão SIM, facilitando a conexão e o gerenciamento de suas comunicações. Seu design ergonômico e leve o torna confortável de usar, ideal para quem está sempre em movimento.\n\nEste smartphone é perfeito para estudantes, profissionais e qualquer pessoa que precise de um dispositivo confiável e acessível. Com o Motorola Moto G06, você desfrutará de uma experiência móvel completa, sem comprometer a qualidade ou o desempenho"
+      },
+      {
+        "id": 1787785973498,
+        "title": "Macaco Elétrico Para Carro 5t 12v Com Chave De Impacto MAIS VENDIDO 1º em Elétrico 4.9 Avaliação 4.9 de 5. 62 opiniões.",
+        "price": 660.91,
+        "oldPrice": null,
+        "category": "wearables",
+        "tag": "OFERTA",
+        "tagColor": "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+        "affiliateLink": "https://meli.la/3218efH",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_2X_881330-MLB112041817463_052026-F-macaco-eletrico-para-carro-5t-12v-com-chave-de-impacto.webp",
+        "desc": "CAPACIDADE DE PESO: O macaco elétrico para carro pode levantar no máximo 5T (10.000 libras) em uma faixa de 15 a 45 cm, e a estrutura de travamento automático garante que os macacos estejam sempre estáveis. O corpo de aço pintado do macaco aumenta a durabilidade e a resistência à ferrugem.\n\nGRANDE ALCANCE DE ELEVAÇÃO: A faixa de altura de elevação do kit de macaco elétrico para carro é de 15 a 45 cm. Levante seu veículo em menos de um minuto com um macaco e troque um pneu rapidamente. Design antiderrapante com ranhuras cruzadas. Altura ajustável.\n\nNota: Os macacos hidráulicos não conseguem suportar a carga depois de um objeto ter sido levantado. Após o levantamento, os macacos devem ser imediatamente substituídos por estruturas ou blocos de suporte adequados para garantir a estabilidade e a segurança da estrutura levantada.\n\nKIT TUDO EM UM: O conjunto de macaco elétrico para carro inclui um macaco elétrico para carro, uma bomba de ar automática e uma chave de impacto elétrica, para que você possa atender a diversas demandas. O painel é fácil de entender e operar. O macaco pode subir e descer automaticamente simplesmente pressionando o botão, e o manômetro é conveniente para visualizar a pressão de inflação."
+      }
+    ];
 
-  // Função para verificar se está acessando via link secreto (#admin) no Celular/PC
-  function checkAdminAccess() {
-    if (window.location.hash === '#admin') {
-      isAdminVisible = true;
-      const adminBtn = document.getElementById('admin-btn');
-      if (adminBtn) adminBtn.classList.remove('hidden');
-      renderProducts();
-    }
-  }
+    let currentProducts = JSON.parse(localStorage.getItem('mazola_products')) || defaultProducts;
 
-  // Atalho de Teclado para Notebook (Ctrl + Shift + A)
-  document.addEventListener('keydown', (e) => {
-    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
-      isAdminVisible = !isAdminVisible;
-      const adminBtn = document.getElementById('admin-btn');
-      if (adminBtn) adminBtn.classList.toggle('hidden', !isAdminVisible);
-      renderProducts();
-      alert(isAdminVisible ? "Modo Administrador Ativado!" : "Modo Administrador Desativado!");
-    }
-  });
+    function renderProducts(productsToRender) {
+      const grid = document.getElementById('products-grid');
+      grid.innerHTML = '';
 
-  // Detecta o #admin assim que a página carrega
-  window.addEventListener('DOMContentLoaded', () => {
-    checkAdminAccess();
-    renderProducts();
-    if (window.lucide) lucide.createIcons();
-  });
+      productsToRender.forEach(p => {
+        const card = document.createElement('div');
+        card.className = "bg-slate-900/90 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-cyan-500/50 transition duration-300 shadow-xl group";
 
-  // Detecta alteração na URL caso digite #admin com a página já aberta
-  window.addEventListener('hashchange', () => {
-    checkAdminAccess();
-  });
-
-  function renderProducts(itemsToRender = products) {
-    const grid = document.getElementById('products-grid');
-    if (!grid) return;
-    grid.innerHTML = '';
-
-    if (itemsToRender.length === 0) {
-      grid.innerHTML = `<p class="col-span-3 text-center text-slate-500 py-8">Nenhum produto encontrado nesta categoria.</p>`;
-      return;
-    }
-
-    itemsToRender.forEach(p => {
-      const oldPriceHTML = p.oldPrice 
-        ? `<span class="text-xs text-slate-500 line-through mr-2">R$ ${Number(p.oldPrice).toFixed(2)}</span>` 
-        : '';
-
-      const deleteButton = isAdminVisible ? `
-        <button onclick="deleteProduct(${p.id})" title="Excluir produto" class="absolute top-3 right-3 z-10 bg-rose-500/20 text-rose-400 hover:bg-rose-500 hover:text-white p-1.5 rounded-lg text-xs transition">
-          <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-        </button>
-      ` : '';
-
-      grid.innerHTML += `
-        <div class="bg-[#131b2e] border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-slate-700 transition group relative shadow-lg">
-          ${deleteButton}
+        card.innerHTML = `
+          <div>
+            <div class="relative w-full h-48 bg-slate-950 rounded-xl overflow-hidden mb-4 border border-slate-800/80">
+              <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <span class="absolute top-2 left-2 ${p.tagColor || 'text-cyan-400 bg-cyan-950/80 border-cyan-800'} border text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                ${p.tag}
+              </span>
+            </div>
+            <h3 class="font-bold text-slate-100 text-sm line-clamp-2 mb-2 group-hover:text-cyan-400 transition">${p.title}</h3>
+            <p class="text-slate-400 text-xs line-clamp-2 mb-4">${p.desc}</p>
+          </div>
 
           <div>
-            <div class="relative h-48 bg-slate-900 rounded-xl overflow-hidden mb-4 flex items-center justify-center">
-              <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=500'">
+            <div class="flex items-baseline gap-2 mb-4">
+              <span class="text-xl font-extrabold text-cyan-400">R$ ${p.price.toFixed(2).replace('.', ',')}</span>
+              ${p.oldPrice ? `<span class="text-xs text-slate-500 line-through">R$ ${p.oldPrice.toFixed(2).replace('.', ',')}</span>` : ''}
             </div>
-            <span class="text-[10px] font-bold uppercase tracking-wider ${p.tagColor || 'text-cyan-400 bg-cyan-950/80 border-cyan-800'} border px-2 py-0.5 rounded">${p.tag}</span>
-            <h3 class="text-base font-bold text-white mt-2 line-clamp-2">${p.title}</h3>
-            <p class="text-xs text-slate-400 mt-1 line-clamp-2">${p.desc}</p>
-          </div>
-
-          <div class="mt-4 pt-4 border-t border-slate-800/60 flex items-center justify-between">
-            <div>
-              ${oldPriceHTML}
-              <span class="text-lg font-extrabold text-cyan-400 block">R$ ${Number(p.price).toFixed(2)}</span>
-            </div>
-            <a href="${p.affiliateLink || '#'}" target="_blank" rel="noopener noreferrer" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-4 py-2 rounded-xl transition flex items-center justify-center gap-1.5 text-xs shadow-md shadow-cyan-500/20">
+            <a href="${p.affiliateLink}" target="_blank" rel="noopener noreferrer" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-xs py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-md shadow-cyan-500/10">
+              <span>VER OFERTA</span>
               <i data-lucide="external-link" class="w-4 h-4"></i>
-              <span>Comprar</span>
             </a>
           </div>
-        </div>
-      `;
-    });
+        `;
+        grid.appendChild(card);
+      });
 
-    if (window.lucide) lucide.createIcons();
-  }
-
-  function toggleAddProductModal() {
-    const modal = document.getElementById('add-product-modal');
-    if (modal) modal.classList.toggle('hidden');
-  }
-
-  function handleCreateProduct(e) {
-    e.preventDefault();
-
-    const newProd = {
-      id: Date.now(),
-      title: document.getElementById('prod-title').value,
-      price: parseFloat(document.getElementById('prod-price').value),
-      oldPrice: document.getElementById('prod-oldprice').value ? parseFloat(document.getElementById('prod-oldprice').value) : null,
-      category: document.getElementById('prod-category').value,
-      tag: document.getElementById('prod-tag').value.toUpperCase(),
-      tagColor: "text-cyan-400 bg-cyan-950/80 border-cyan-800",
-      affiliateLink: document.getElementById('prod-afflink').value,
-      image: document.getElementById('prod-image').value,
-      desc: document.getElementById('prod-desc').value
-    };
-
-    products.unshift(newProd);
-    localStorage.setItem('mazolastore_products', JSON.stringify(products));
-
-    renderProducts();
-    toggleAddProductModal();
-    document.getElementById('product-form').reset();
-  }
-
-  function deleteProduct(id) {
-    if(confirm("Deseja realmente remover este produto do catálogo?")) {
-      products = products.filter(p => p.id !== id);
-      localStorage.setItem('mazolastore_products', JSON.stringify(products));
-      renderProducts();
+      lucide.createIcons();
     }
-  }
 
-  function exportProductsCode() {
-    const formattedCode = `const defaultProducts = ${JSON.stringify(products, null, 2)};`;
-    navigator.clipboard.writeText(formattedCode).then(() => {
-      alert("✅ Código da lista de produtos copiado!\n\nAgora abra seu VS Code ou GitHub, selecione o trecho 'const defaultProducts = [...]' e cole por cima.");
-    }).catch(err => {
-      console.error("Erro ao copiar: ", err);
-      alert("Não foi possível copiar automaticamente.");
-    });
-  }
-
-  function openGPTMakerChat() {
-    const gptIframe = document.querySelector('iframe[src*="gptmaker"]') || document.querySelector('[class*="gptmaker"]');
-    if (gptIframe) {
-      gptIframe.click();
-    } else {
-      const floatBtn = document.querySelector('#gptmaker-float-button') || document.querySelector('div[class*="float"]');
-      if (floatBtn) floatBtn.click();
+    function filterCategory(cat) {
+      if (cat === 'todos') {
+        renderProducts(currentProducts);
+      } else {
+        const filtered = currentProducts.filter(p => p.category === cat);
+        renderProducts(filtered);
+      }
     }
-  }
 
-  function filterProducts() {
-    const query = document.getElementById('search-input').value.toLowerCase();
-    const filtered = products.filter(p => 
-      p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query)
-    );
-    renderProducts(filtered);
-  }
-
-  function filterCategory(cat) {
-    if (cat === 'todos') {
-      renderProducts(products);
-    } else {
-      const filtered = products.filter(p => p.category === cat);
+    function filterProducts() {
+      const term = document.getElementById('search-input').value.toLowerCase();
+      const filtered = currentProducts.filter(p => p.title.toLowerCase().includes(term) || p.desc.toLowerCase().includes(term));
       renderProducts(filtered);
     }
-  }
-  </script>
 
-  <!-- CHATBOT GPT MAKER MAZOLASTORE -->
-  <script
-    async
-    src="https://app.gptmaker.ai/widget/3F74D7DC4177C3C5E830A20A1A60BEF9/float.js">
-  </script>
+    function toggleAddProductModal() {
+      const modal = document.getElementById('add-product-modal');
+      modal.classList.toggle('hidden');
+    }
 
+    function handleCreateProduct(e) {
+      e.preventDefault();
+      const newProd = {
+        id: Date.now(),
+        title: document.getElementById('prod-title').value,
+        price: parseFloat(document.getElementById('prod-price').value),
+        oldPrice: document.getElementById('prod-oldprice').value ? parseFloat(document.getElementById('prod-oldprice').value) : null,
+        category: document.getElementById('prod-category').value,
+        tag: document.getElementById('prod-tag').value.toUpperCase(),
+        tagColor: "text-cyan-400 bg-cyan-950/80 border-cyan-800",
+        affiliateLink: document.getElementById('prod-afflink').value,
+        image: document.getElementById('prod-image').value,
+        desc: document.getElementById('prod-desc').value
+      };
+
+      currentProducts.unshift(newProd);
+      localStorage.setItem('mazola_products', JSON.stringify(currentProducts));
+      renderProducts(currentProducts);
+      toggleAddProductModal();
+      document.getElementById('product-form').reset();
+    }
+
+    function exportProductsCode() {
+      const code = JSON.stringify(currentProducts, null, 2);
+      navigator.clipboard.writeText(code);
+      alert('Código dos produtos copiado para a área de transferência!');
+    }
+
+    // Inicialização
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProducts(currentProducts);
+
+      // Atalho Admin (Ctrl + Shift + A)
+      document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
+          const btn = document.getElementById('admin-btn');
+          const container = document.getElementById('admin-container');
+          btn.classList.toggle('hidden');
+          container.classList.toggle('hidden');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
