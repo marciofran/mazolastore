@@ -439,19 +439,38 @@
     }
 
     // Inicialização
-    document.addEventListener('DOMContentLoaded', () => {
-      renderProducts(currentProducts);
+document.addEventListener('DOMContentLoaded', () => {
+  renderProducts(currentProducts);
+});
 
-      // Atalho Admin (Ctrl + Shift + A)
-      document.addEventListener('keydown', (e) => {
-        if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
-          const btn = document.getElementById('admin-btn');
-          const container = document.getElementById('admin-container');
-          btn.classList.toggle('hidden');
-          container.classList.toggle('hidden');
-        }
-      });
-    });
-  </script>
+// Atalho Admin (Ctrl + Shift + A)
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
+    const btn = document.getElementById('admin-btn');
+    const container = document.getElementById('admin-container');
+    if (btn) btn.classList.toggle('hidden');
+    if (container) container.classList.toggle('hidden');
+  }
+});
+</script>
+
+<!-- FOOTER / ATENDIMENTO RESTAURADO -->
+<footer id="contato" class="mt-16 pt-8 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-6 text-slate-400 text-xs">
+  <div>
+    <div class="flex items-center gap-2 font-bold text-base text-white mb-2">
+      <img src="assets/logo.jpg" alt="Logo MAZOLASTORE" class="w-5 h-5 object-contain rounded" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100'"> MAZOLASTORE
+    </div>
+    <p>© 2026 MAZOLASTORE. Todos os direitos reservados.</p>
+  </div>
+
+  <div class="flex items-center gap-6">
+    <a href="#" onclick="openGPTMakerChat()" class="flex items-center gap-1.5 text-cyan-400 hover:underline transition font-semibold">
+      <i data-lucide="bot" class="w-4 h-4"></i> Atendimento / Chat
+    </a>
+    <a href="#" class="hover:text-cyan-400 transition">Termos de Uso</a>
+    <a href="#" class="hover:text-cyan-400 transition">Garantia</a>
+  </div>
+</footer>
+
 </body>
 </html>
